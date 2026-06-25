@@ -6,16 +6,19 @@ sourced from [The Neuron Daily](https://www.theneurondaily.com) newsletter.
 ## Build
 
 ```bash
-python build.py
+python build.py            # build the site from data/skills.json
+python build.py --reseed   # first rebuild data/skills.json from ../AI_Skills_Neuron/
 ```
 
-This walks `../AI_Skills_Neuron/`, parses each skill's `README.md` and
-`prompt.md`, assigns a category, and regenerates:
+`data/skills.json` is the source of truth (the daily scraper appends to it).
+`build.py` regenerates, from that JSON:
 
 - `index.html` — searchable, filterable card grid of all skills
 - `skills/<slug>/index.html` — a self-contained page per skill
 
 Every page is self-contained (only external dependency is Google Fonts).
+The site auto-updates daily via `.github/workflows/daily-update.yml`
+(scrape → `build.py` → commit).
 
 ## View
 

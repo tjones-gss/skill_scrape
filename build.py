@@ -14,10 +14,12 @@ Run from the repo root:  python build.py
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT.parent / "AI_Skills_Neuron"
+DATA_FILE = ROOT / "data" / "skills.json"
 
 # ---------------------------------------------------------------------------
 # Design system
@@ -125,17 +127,14 @@ def parse_skill(skill_dir):
     title = title_m.group(1).strip() if title_m else skill_dir.name
 
     src_m = re.search(r"\*\*Source:\*\*\s*(.+)", readme)
-    source_text, source_url = None, None
+    source = ""
     if src_m:
         raw = src_m.group(1).strip()
         link = re.match(r"\[([^\]]+)\]\(([^)]+)\)", raw)
-        if link:
-            source_text, source_url = link.group(1).strip(), link.group(2).strip()
-        else:
-            source_text = raw
+        source = link.group(2).strip() if link else raw
 
     date_m = re.search(r"\*\*Date:\*\*\s*(.+)", readme)
-    date = date_m.group(1).strip() if date_m else None
+    date = date_m.group(1).strip() if date_m else ""
 
     sections = split_sections(readme)
 
@@ -153,21 +152,17 @@ def parse_skill(skill_dir):
     prompt_path = skill_dir / "prompt.md"
     prompt = prompt_path.read_text(encoding="utf-8").strip() if prompt_path.exists() else ""
 
-    category = assign_category(title, f"{what}\n{why}\n{how}")
-    summary = first_sentences(what, 2)
-
     return {
         "slug": skill_dir.name,
         "title": title,
-        "source_text": source_text,
-        "source_url": source_url,
         "date": date,
+        "source": source,
+        "summary": first_sentences(what, 2),
         "what": what,
         "why": why,
         "how": how,
         "prompt": prompt,
-        "category": category,
-        "summary": summary,
+        "category": assign_category(title, f"{what}\n{why}\n{how}"),
     }
 
 
@@ -279,20 +274,34 @@ def pill(category):
 
 def skill_page(skill):
     title = html.escape(skill["title"])
+    source = (skill.get("source") or "").strip()
+    date = (skill.get("date") or "").strip()
+
     meta_bits = []
-    if skill["source_url"]:
+    if source.startswith(("http://", "https://")):
         meta_bits.append(
-            f'<a class="meta-link" href="{html.escape(skill["source_url"])}" '
+            f'<a class="meta-link" href="{html.escape(source)}" '
             f'target="_blank" rel="noopener">Source ↗</a>')
-    elif skill["source_text"]:
-        meta_bits.append(f'<span class="meta-item">{html.escape(skill["source_text"])}</span>')
-    if skill["date"]:
-        meta_bits.append(f'<span class="meta-item">{html.escape(skill["date"])}</span>')
+    elif source:
+        meta_bits.append(f'<span class="meta-item">{html.escape(source)}</span>')
+    if date:
+        meta_bits.append(f'<span class="meta-item">{html.escape(date)}</span>')
     meta_bits.append(pill(skill["category"]))
     meta_row = " ".join(meta_bits)
 
-    prompt_raw = skill["prompt"]
-    prompt_html = html.escape(prompt_raw)
+    prompt_html = html.escape(skill.get("prompt") or "")
+
+    def section(heading, body):
+        body = (body or "").strip()
+        if not body:
+            return ""
+        return f'<section>\n    <h2>{heading}</h2>\n    {md_to_html(body)}\n  </section>'
+
+    sections = "\n\n  ".join(filter(None, [
+        section("What This Skill Is", skill.get("what")),
+        section("Why It Works", skill.get("why")),
+        section("How to Use It", skill.get("how")),
+    ]))
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -309,20 +318,7 @@ def skill_page(skill):
   <h1>{title}</h1>
   <div class="meta-row">{meta_row}</div>
 
-  <section>
-    <h2>What This Skill Is</h2>
-    {md_to_html(skill["what"])}
-  </section>
-
-  <section>
-    <h2>Why It Works</h2>
-    {md_to_html(skill["why"])}
-  </section>
-
-  <section>
-    <h2>How to Use It</h2>
-    {md_to_html(skill["how"])}
-  </section>
+  {sections}
 
   <section>
     <div class="prompt-head">
@@ -624,19 +620,61 @@ footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding-to
 # ---------------------------------------------------------------------------
 # Build
 # ---------------------------------------------------------------------------
-def main():
-    if not SRC.exists():
-        raise SystemExit(f"Source directory not found: {SRC}")
+JSON_FIELDS = ("slug", "title", "date", "source", "summary",
+               "what", "why", "how", "prompt", "category")
 
+
+def parse_source_dir():
+    """Parse every skill from the local AI_Skills_Neuron source directory."""
     skill_dirs = sorted(
         d for d in SRC.iterdir()
         if d.is_dir() and (d / "README.md").exists()
     )
+    return [parse_skill(d) for d in skill_dirs]
 
-    skills = [parse_skill(d) for d in skill_dirs]
+
+def load_skills(reseed):
+    """Load skills from data/skills.json — the in-repo source of truth that the
+    daily scraper appends to (and the only data available in CI).
+
+    With --reseed (local only), rebuild skills.json from the AI_Skills_Neuron
+    source first, so it carries full source URLs and dates for every skill.
+    """
+    if reseed:
+        if not SRC.exists():
+            raise SystemExit(f"--reseed needs the source dir: {SRC}")
+        skills = parse_source_dir()
+        DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+        DATA_FILE.write_text(
+            json.dumps(skills, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Reseeded data/skills.json with {len(skills)} skills from source.")
+        return skills
+
+    if DATA_FILE.exists():
+        return json.loads(DATA_FILE.read_text(encoding="utf-8"))
+
+    if SRC.exists():
+        print("data/skills.json missing — parsing from source instead.")
+        return parse_source_dir()
+
+    raise SystemExit(
+        f"No data source found: neither {DATA_FILE} nor {SRC} exists.")
+
+
+def normalize(skill):
+    """Coerce a record (from JSON or the scraper) into the fields the templates
+    need, re-deriving the category in our taxonomy and a summary if absent."""
+    s = {k: (skill.get(k) or "") for k in JSON_FIELDS}
+    s["category"] = assign_category(s["title"], f'{s["what"]}\n{s["why"]}\n{s["how"]}')
+    if not s["summary"].strip():
+        s["summary"] = first_sentences(s["what"], 2)
+    return s
+
+
+def build_site(skills):
+    skills = [normalize(s) for s in skills if (s.get("title") or "").strip()]
     skills.sort(key=lambda s: s["title"].lower())
 
-    # Per-skill pages
     skills_root = ROOT / "skills"
     skills_root.mkdir(exist_ok=True)
     for s in skills:
@@ -644,13 +682,9 @@ def main():
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(skill_page(s), encoding="utf-8")
 
-    # Hub
     (ROOT / "index.html").write_text(index_page(skills), encoding="utf-8")
-
-    # README
     (ROOT / "README.md").write_text(readme_text(len(skills)), encoding="utf-8")
 
-    # Category distribution report
     dist = {}
     for s in skills:
         dist[s["category"]] = dist.get(s["category"], 0) + 1
@@ -658,6 +692,11 @@ def main():
     for cat in CATEGORY_COLORS:
         if cat in dist:
             print(f"  {cat:20s} {dist[cat]}")
+
+
+def main():
+    skills = load_skills("--reseed" in sys.argv)
+    build_site(skills)
 
 
 def readme_text(n):
@@ -669,16 +708,19 @@ sourced from [The Neuron Daily](https://www.theneurondaily.com) newsletter.
 ## Build
 
 ```bash
-python build.py
+python build.py            # build the site from data/skills.json
+python build.py --reseed   # first rebuild data/skills.json from ../AI_Skills_Neuron/
 ```
 
-This walks `../AI_Skills_Neuron/`, parses each skill's `README.md` and
-`prompt.md`, assigns a category, and regenerates:
+`data/skills.json` is the source of truth (the daily scraper appends to it).
+`build.py` regenerates, from that JSON:
 
 - `index.html` — searchable, filterable card grid of all skills
 - `skills/<slug>/index.html` — a self-contained page per skill
 
 Every page is self-contained (only external dependency is Google Fonts).
+The site auto-updates daily via `.github/workflows/daily-update.yml`
+(scrape → `build.py` → commit).
 
 ## View
 
