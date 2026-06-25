@@ -1,47 +1,26 @@
-# AI Skills Archive — The Neuron Daily
+# Neuron Daily AI Skills
 
-> 107+ AI Skills of the Day, organized and searchable. Auto-updated daily.
+A static, searchable archive of 107 AI skills — prompts, tactics, and frameworks
+sourced from [The Neuron Daily](https://www.theneurondaily.com) newsletter.
 
-**Live site:** https://tjones-gss.github.io/skill_scrape
-
-Skills sourced from [The Neuron Daily](https://www.theneurondaily.com) newsletter.  
-Includes What's New updates from Claude Code and Cursor.
-
-## Setup GitHub Pages
-
-1. Push this repo to GitHub
-2. Go to Settings → Pages
-3. Source: **Deploy from a branch**
-4. Branch: `main` · Folder: `/ (root)`
-5. Save — site is live in ~60 seconds at `https://tjones-gss.github.io/skill_scrape`
-
-## Run locally
+## Build
 
 ```bash
-pip install requests beautifulsoup4 lxml
-python scripts/scrape_neuron.py   # fetch new skills
-python scripts/fetch_changelogs.py # fetch tool updates
-python scripts/build_html.py       # rebuild index.html
-open index.html
+python build.py
 ```
 
-## Project structure
+This walks `../AI_Skills_Neuron/`, parses each skill's `README.md` and
+`prompt.md`, assigns a category, and regenerates:
 
+- `index.html` — searchable, filterable card grid of all skills
+- `skills/<slug>/index.html` — a self-contained page per skill
+
+Every page is self-contained (only external dependency is Google Fonts).
+
+## View
+
+Open `index.html` in a browser, or serve the folder:
+
+```bash
+python -m http.server
 ```
-skill_scrape/
-├── index.html               # The live UI (GitHub Pages serves this)
-├── data/
-│   ├── skills.json          # All 107+ skills (source of truth)
-│   └── changelog.json       # Recent Claude Code + Cursor updates
-├── skills/                  # Individual skill folders (README + prompt)
-├── scripts/
-│   ├── scrape_neuron.py     # Scrapes new skills daily
-│   ├── fetch_changelogs.py  # Fetches Cursor + Claude Code changelogs
-│   └── build_html.py        # Rebuilds index.html from data
-└── .github/workflows/
-    └── daily-update.yml     # Runs Mon-Fri at 9am ET
-```
-
-## Manual trigger
-
-Go to **Actions → Daily Skills Update → Run workflow** to trigger a manual update.

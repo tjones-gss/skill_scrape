@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini Can Now Build Your Google Docs, Sheets, and PDFs for You — Neuron Daily AI Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d12;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --text: #e2e2f0;
+  --muted: #6b6b8a;
+  --accent: #7c5cfc;
+  --accent-glow: rgba(124,92,252,0.15);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--pill);
+  background: color-mix(in srgb, var(--pill) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pill) 35%, transparent);
+  white-space: nowrap;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.back { display: inline-block; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.02em; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.meta-link, .meta-item { font-size: 0.85rem; color: var(--muted); }
+.meta-link:hover { color: var(--accent); }
+section { margin-bottom: 2.5rem; }
+section h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.75rem; color: var(--text); }
+section p { color: #c9c9de; margin: 0 0 1rem; }
+section ul, section ol { color: #c9c9de; padding-left: 1.4rem; margin: 0 0 1rem; }
+section li { margin-bottom: 0.4rem; }
+section h3, section h4 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--text); }
+code { font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace; font-size: 0.85em; background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 5px; border: 1px solid var(--border); }
+.codeblock { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; }
+.codeblock code { background: none; border: none; padding: 0; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.prompt-head h2 { margin: 0; }
+.copy-btn {
+  font-family: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; }
+.copy-btn.copied { background: #10b981; color: #fff; border-color: #10b981; }
+.prompt-box {
+  background: #08080c; border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.25rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+}
+.prompt-box code {
+  font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.85rem; color: #d7d7e8; background: none; border: none; padding: 0; line-height: 1.55;
+}
+footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../index.html">← All Skills</a>
+  <h1>Gemini Can Now Build Your Google Docs, Sheets, and PDFs for You</h1>
+  <div class="meta-row"><a class="meta-link" href="https://www.theneurondaily.com/p/a-patch-wave-is-coming-for-your-software" target="_blank" rel="noopener">Source ↗</a> <span class="pill" style="--pill:#ec4899">Content</span></div>
+
+  <section>
+    <h2>What This Skill Is</h2>
+    <p>Gemini can now generate full files — Google Docs, Sheets, Slides, Excel, CSV, PDF, even Markdown — directly from a prompt, no copy-pasting required.</p>
+<p>A few things you can do right now:</p>
+<ul><li><strong>Research + doc in one shot</strong>: Ask Gemini to look something up and create a Google Doc with its findings</li><li><strong>Turn receipts into a spreadsheet</strong>: Upload photos/files, ask Gemini to organize them into Excel or Sheets with whatever columns you need</li><li><strong>Pull from your Drive</strong>: Ask Gemini to find an existing file and build something new from it (e.g., a PDF summary with graphs)</li><li><strong>Create multiple files at once</strong>: Ask for the same content in several formats simultaneously</li></ul>
+  </section>
+
+  <section>
+    <h2>Why It Works</h2>
+    <p>Gemini&#x27;s native integration with Google Workspace means it can create files in the actual formats you use — not just markdown you have to reformat. Eliminates the copy-paste step that kills most AI productivity workflows.</p>
+  </section>
+
+  <section>
+    <h2>How to Use It</h2>
+    <ol><li>Open Gemini (gemini.google.com) and sign in with your Google account</li><li>Upload any files or photos you want to work with</li><li>Describe what file you want created and what should be in it</li><li>Gemini creates the file and offers a direct download or Drive save</li></ol>
+<p><strong>Caveat:</strong> When you ask Gemini to edit an existing Drive file, it duplicates it instead of editing in place.</p>
+  </section>
+
+  <section>
+    <div class="prompt-head">
+      <h2>Prompt Template</h2>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+    <pre class="prompt-box"><code id="promptText">Here are [N] receipt photos. Create an Excel expense report with these columns: Date, Vendor, Category, Amount, Notes. Include a totals row at the bottom.</code></pre>
+  </section>
+
+  <footer>Sourced from <a href="https://www.theneurondaily.com" target="_blank" rel="noopener">theneurondaily.com</a></footer>
+</div>
+<script>
+const btn = document.getElementById('copyBtn');
+btn.addEventListener('click', async () => {
+  const text = document.getElementById('promptText').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    const r = document.createRange();
+    r.selectNode(document.getElementById('promptText'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+  }
+});
+</script>
+</body>
+</html>

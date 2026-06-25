@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make ChatGPT Judge Its Own Work Before You See It — Neuron Daily AI Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d12;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --text: #e2e2f0;
+  --muted: #6b6b8a;
+  --accent: #7c5cfc;
+  --accent-glow: rgba(124,92,252,0.15);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--pill);
+  background: color-mix(in srgb, var(--pill) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pill) 35%, transparent);
+  white-space: nowrap;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.back { display: inline-block; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.02em; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.meta-link, .meta-item { font-size: 0.85rem; color: var(--muted); }
+.meta-link:hover { color: var(--accent); }
+section { margin-bottom: 2.5rem; }
+section h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.75rem; color: var(--text); }
+section p { color: #c9c9de; margin: 0 0 1rem; }
+section ul, section ol { color: #c9c9de; padding-left: 1.4rem; margin: 0 0 1rem; }
+section li { margin-bottom: 0.4rem; }
+section h3, section h4 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--text); }
+code { font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace; font-size: 0.85em; background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 5px; border: 1px solid var(--border); }
+.codeblock { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; }
+.codeblock code { background: none; border: none; padding: 0; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.prompt-head h2 { margin: 0; }
+.copy-btn {
+  font-family: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; }
+.copy-btn.copied { background: #10b981; color: #fff; border-color: #10b981; }
+.prompt-box {
+  background: #08080c; border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.25rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+}
+.prompt-box code {
+  font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.85rem; color: #d7d7e8; background: none; border: none; padding: 0; line-height: 1.55;
+}
+footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../index.html">← All Skills</a>
+  <h1>Make ChatGPT Judge Its Own Work Before You See It</h1>
+  <div class="meta-row"><span class="meta-item">https://www.theneurondaily.com/p/deepmind-mapped-ai-agent-controls</span> <span class="meta-item">June 21, 2026</span> <span class="pill" style="--pill:#10b981">Coding</span></div>
+
+  <section>
+    <h2>What This Skill Is</h2>
+    <p>Use an LLM-as-a-judge loop with Codex&#x27;s /goal command. Instead of giving Codex a task and hoping for the best, you first ask the model to define what &quot;good enough&quot; looks like — then it works in a loop checking its own output against those criteria before reporting back to you.</p>
+  </section>
+
+  <section>
+    <h2>Why It Works</h2>
+    <p>Most AI failures happen because there&#x27;s no clear success criteria. When you ask Codex to define and then enforce its own acceptance criteria, it self-corrects rather than stopping at &quot;looks done.&quot; The loop continues until the work measurably meets the goal — not just when the model runs out of ideas.</p>
+  </section>
+
+  <section>
+    <h2>How to Use It</h2>
+    <p>Use in Codex or Claude Code with any task that has a measurable outcome: dashboard performance, document cleanup, bug fixes, code optimization. Works especially well with /goal prefix.</p>
+  </section>
+
+  <section>
+    <div class="prompt-head">
+      <h2>Prompt Template</h2>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+    <pre class="prompt-box"><code id="promptText">/goal
+
+Work toward this outcome:
+[describe the task]
+
+Before starting, define what &quot;good enough&quot; means for this task.
+
+Create 3-5 success criteria Codex can keep checking while it works. Include any hard requirements, tests, files, constraints, style rules, performance targets, or user-facing behavior that must be preserved.
+
+Then work in a loop:
+1. Make the next useful improvement.
+2. Judge the result against the success criteria.
+3. Identify the biggest remaining gap.
+4. Continue until the work meets the goal.
+
+Return:
+- The final result
+- The success criteria you used
+- The biggest change you made</code></pre>
+  </section>
+
+  <footer>Sourced from <a href="https://www.theneurondaily.com" target="_blank" rel="noopener">theneurondaily.com</a></footer>
+</div>
+<script>
+const btn = document.getElementById('copyBtn');
+btn.addEventListener('click', async () => {
+  const text = document.getElementById('promptText').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    const r = document.createRange();
+    r.selectNode(document.getElementById('promptText'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+  }
+});
+</script>
+</body>
+</html>

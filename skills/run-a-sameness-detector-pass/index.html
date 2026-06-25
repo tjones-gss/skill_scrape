@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run a &quot;Sameness Detector&quot; Pass — Neuron Daily AI Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d12;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --text: #e2e2f0;
+  --muted: #6b6b8a;
+  --accent: #7c5cfc;
+  --accent-glow: rgba(124,92,252,0.15);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--pill);
+  background: color-mix(in srgb, var(--pill) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pill) 35%, transparent);
+  white-space: nowrap;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.back { display: inline-block; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.02em; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.meta-link, .meta-item { font-size: 0.85rem; color: var(--muted); }
+.meta-link:hover { color: var(--accent); }
+section { margin-bottom: 2.5rem; }
+section h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.75rem; color: var(--text); }
+section p { color: #c9c9de; margin: 0 0 1rem; }
+section ul, section ol { color: #c9c9de; padding-left: 1.4rem; margin: 0 0 1rem; }
+section li { margin-bottom: 0.4rem; }
+section h3, section h4 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--text); }
+code { font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace; font-size: 0.85em; background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 5px; border: 1px solid var(--border); }
+.codeblock { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; }
+.codeblock code { background: none; border: none; padding: 0; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.prompt-head h2 { margin: 0; }
+.copy-btn {
+  font-family: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; }
+.copy-btn.copied { background: #10b981; color: #fff; border-color: #10b981; }
+.prompt-box {
+  background: #08080c; border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.25rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+}
+.prompt-box code {
+  font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.85rem; color: #d7d7e8; background: none; border: none; padding: 0; line-height: 1.55;
+}
+footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../index.html">← All Skills</a>
+  <h1>Run a &quot;Sameness Detector&quot; Pass</h1>
+  <div class="meta-row"><a class="meta-link" href="https://www.theneurondaily.com/p/spotify-wants-to-be-your-whole-audio-life" target="_blank" rel="noopener">Source ↗</a> <span class="pill" style="--pill:#7c5cfc">Prompting</span></div>
+
+  <section>
+    <h2>What This Skill Is</h2>
+    <p>Most AI drafts are fine. Fine is the danger.</p>
+<p>As Dan Shipper argues, AI makes yesterday&#x27;s competence cheap — everyone can produce decent work. The problem is that decent work starts to repeat itself: same ideas, same examples, same section flow, same rhythm, same &quot;smart&quot; conclusion.</p>
+<p>This skill runs a Sameness Detector pass before you publish. You&#x27;re asking AI to find low-perplexity work — the parts that feel too predictable. This includes repeated ideas, duplicate sections, overused phrasing, flat transitions, obvious examples, and &quot;polished&quot; paragraphs that add no new information.</p>
+<p>The goal is not to make the draft weird. It&#x27;s to make it specific.</p>
+  </section>
+
+  <section>
+    <h2>Why It Works</h2>
+    <p>AI drafts default to the average of everything it has seen — predictable structure, generic examples, flat rhythm. This prompt audits across 8 distinct dimensions of sameness, then produces a concrete rewrite plan. The result is content that feels specific and alive rather than competently generic.</p>
+  </section>
+
+  <section>
+    <h2>How to Use It</h2>
+    <ol><li>Copy the prompt template above</li><li>Fill in your audience, goal, and paste your draft</li><li>Paste into Claude, ChatGPT, or Gemini</li><li>Review the diversification plan, then accept or refine the rewrite</li></ol>
+  </section>
+
+  <section>
+    <div class="prompt-head">
+      <h2>Prompt Template</h2>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+    <pre class="prompt-box"><code id="promptText">Run a Sameness Detector pass on this draft.
+
+Your job is to find every place where the work feels predictable, repetitive, generic, or too similar to common AI output.
+
+Audit for sameness across:
+1. Ideas: repeated points, obvious claims, or concepts that do the same job
+2. Structure: sections that follow the same setup, order, or argument shape
+3. Phrasing: repeated words, sentence patterns, transitions, and summary lines
+4. Examples: generic examples that could apply to anyone
+5. Evidence: unsupported claims or proof points that feel interchangeable
+6. Rhythm: paragraphs or bullets that sound too similar in length or cadence
+7. Emotional beats: places where the tone stays flat, over-polished, or predictable
+8. Usefulness: sentences that sound smart but do not help the reader decide, act, or understand
+
+Then create a diversification plan:
+- What should be cut?
+- What should be combined?
+- What needs a sharper example?
+- What needs a more surprising angle?
+- What needs more specificity from the audience, company, moment, or situation?
+- Where should the structure change so the draft has more &quot;perplexity,&quot; meaning useful surprise and variation?
+
+Finally, rewrite the draft so it feels more specific, varied, and alive without making it longer by default.
+
+Audience:
+[paste audience]
+
+Goal:
+[paste goal]
+
+Draft:
+[paste draft]</code></pre>
+  </section>
+
+  <footer>Sourced from <a href="https://www.theneurondaily.com" target="_blank" rel="noopener">theneurondaily.com</a></footer>
+</div>
+<script>
+const btn = document.getElementById('copyBtn');
+btn.addEventListener('click', async () => {
+  const text = document.getElementById('promptText').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    const r = document.createRange();
+    r.selectNode(document.getElementById('promptText'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+  }
+});
+</script>
+</body>
+</html>

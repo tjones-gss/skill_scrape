@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Build Your First Agent in Claude: The Three-Folder Pattern That Actually Scales — Neuron Daily AI Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d12;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --text: #e2e2f0;
+  --muted: #6b6b8a;
+  --accent: #7c5cfc;
+  --accent-glow: rgba(124,92,252,0.15);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--pill);
+  background: color-mix(in srgb, var(--pill) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pill) 35%, transparent);
+  white-space: nowrap;
+}
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.back { display: inline-block; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.back:hover { color: var(--accent); text-decoration: none; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.02em; }
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.meta-link, .meta-item { font-size: 0.85rem; color: var(--muted); }
+.meta-link:hover { color: var(--accent); }
+section { margin-bottom: 2.5rem; }
+section h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.75rem; color: var(--text); }
+section p { color: #c9c9de; margin: 0 0 1rem; }
+section ul, section ol { color: #c9c9de; padding-left: 1.4rem; margin: 0 0 1rem; }
+section li { margin-bottom: 0.4rem; }
+section h3, section h4 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--text); }
+code { font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace; font-size: 0.85em; background: var(--bg); padding: 0.1rem 0.35rem; border-radius: 5px; border: 1px solid var(--border); }
+.codeblock { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; overflow-x: auto; }
+.codeblock code { background: none; border: none; padding: 0; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+.prompt-head h2 { margin: 0; }
+.copy-btn {
+  font-family: inherit; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent); background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; transition: all .15s;
+}
+.copy-btn:hover { background: var(--accent); color: #fff; }
+.copy-btn.copied { background: #10b981; color: #fff; border-color: #10b981; }
+.prompt-box {
+  background: #08080c; border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.25rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+}
+.prompt-box code {
+  font-family: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.85rem; color: #d7d7e8; background: none; border: none; padding: 0; line-height: 1.55;
+}
+footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../index.html">← All Skills</a>
+  <h1>How to Build Your First Agent in Claude: The Three-Folder Pattern That Actually Scales</h1>
+  <div class="meta-row"><a class="meta-link" href="https://www.theneurondaily.com/p/what-gets-scarce-when-ai-does-everything" target="_blank" rel="noopener">Source ↗</a> <span class="pill" style="--pill:#3b82f6">Agents</span></div>
+
+  <section>
+    <h2>What This Skill Is</h2>
+    <p>&quot;How do I start building agents in Claude?&quot; — the most-requested skill in The Neuron&#x27;s April reader inbox. Jeff Su&#x27;s canonical guide boils down to three CLAUDE.md files that stack:</p>
+<ol><li><strong>Root CLAUDE.md</strong> (under 300 lines): global voice rules and model defaults (Sonnet 80% of the time; Opus when a task has 3+ dependent steps)</li><li><strong>Workstation CLAUDE.md files</strong>: one per area of life (Email HQ, Newsletter HQ, Personal Finances) — rules stack on top of root automatically</li><li><strong>Project subfolders</strong>: one-off work like a mortgage refinance or Q4 trip — each gets its own CLAUDE.md and MEMORY.md</li></ol>
+<p>Every folder also gets a MEMORY.md that Cowork writes to whenever you correct it. Corrections compound.</p>
+  </section>
+
+  <section>
+    <h2>Why It Works</h2>
+    <p>The three-folder hierarchy separates global preferences from domain-specific rules from project-specific context. Each layer inherits from the one above, so corrections and rules compound over time without contradicting each other.</p>
+  </section>
+
+  <section>
+    <h2>How to Use It</h2>
+    <ol><li>Open Claude Cowork (desktop app) — for non-developers, this is the right starting point</li><li>Paste the prompt above into a fresh chat</li><li>Let Cowork create the folder structure and analyze your email patterns</li><li>Connect Gmail, Drive, and Calendar via Connectors</li><li>Type <code>/schedule</code> to make any task recurring</li></ol>
+  </section>
+
+  <section>
+    <div class="prompt-head">
+      <h2>Prompt Template</h2>
+      <button class="copy-btn" id="copyBtn">Copy</button>
+    </div>
+    <pre class="prompt-box"><code id="promptText">Create a new workstation called &quot;Email HQ&quot; in /Documents/Cowork OS.
+Inside it, create:
+1. CLAUDE.md with email-specific rules (default greeting, sign-off, formality level).
+2. An empty MEMORY.md (you&#x27;ll add learnings to this over time).
+3. A &quot;Resources&quot; subfolder.
+Then use the Gmail connector to search my last 4 weeks of sent emails. Extract the patterns I use repeatedly: my opener, my sign-off, my formality level, common phrases I use with specific people. Save these as Editorial Rules inside CLAUDE.md.
+When you&#x27;re done, write one paragraph summarizing what you learned about my email voice so I can verify before we lock it in.</code></pre>
+  </section>
+
+  <footer>Sourced from <a href="https://www.theneurondaily.com" target="_blank" rel="noopener">theneurondaily.com</a></footer>
+</div>
+<script>
+const btn = document.getElementById('copyBtn');
+btn.addEventListener('click', async () => {
+  const text = document.getElementById('promptText').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  } catch (e) {
+    const r = document.createRange();
+    r.selectNode(document.getElementById('promptText'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(r);
+    document.execCommand('copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+  }
+});
+</script>
+</body>
+</html>
