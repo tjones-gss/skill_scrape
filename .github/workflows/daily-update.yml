@@ -1,0 +1,51 @@
+name: Daily Skills Update
+
+on:
+  schedule:
+    - cron: '0 14 * * 1-5'  # 9am ET weekdays (Mon-Fri)
+  workflow_dispatch:          # manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Scrape new Neuron Daily skills
+        run: python scripts/scrape_neuron.py
+        continue-on-error: true   # don't block if Neuron is unreachable
+
+      - name: Fetch Cursor + Claude Code changelogs
+        run: python scripts/fetch_changelogs.py
+        continue-on-error: true
+
+      - name: Rebuild index.html
+        run: python scripts/build_html.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A
+          git diff --staged --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          SKILL_COUNT=$(python -c "import json; print(len(json.load(open('data/skills.json'))))")
+          git commit -m "🤖 Daily update $(date -u +%Y-%m-%d) — ${SKILL_COUNT} skills"
+          git push

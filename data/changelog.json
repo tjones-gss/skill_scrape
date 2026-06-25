@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-06-25",
+    "source": "Skill Archive",
+    "source_url": "https://tjones-gss.github.io/skill_scrape",
+    "headline": "107 skills archived and live",
+    "summary": "All AI Skills of the Day from The Neuron Daily are now indexed, searchable, and organized by category."
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Claude Code",
+    "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
+    "headline": "Check Claude Code changelog for latest updates",
+    "summary": "Daily auto-fetch of Claude Code updates enabled via GitHub Actions."
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "Check Cursor changelog for latest AI features",
+    "summary": "Daily auto-fetch of Cursor updates enabled via GitHub Actions."
+  }
+]
