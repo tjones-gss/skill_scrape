@@ -1,6 +1,48 @@
 [
   {
     "date": "2026-06-25",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Marketplace leaderboard",
+    "summary": "Cursor now shows you a leaderboard of the most popular plugins, skills, and MCPs across your team."
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Plugin canvases",
+    "summary": "Plugins now support prebuilt canvases: shared setup templates your team can open and reuse."
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#New Team Marketplaces",
+    "summary": "Team marketplacesnow support imports of plugin repositories from GitLab, BitBucket, or Azure DevOps so you easily add plugins and distribute them to your team."
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Claude Code",
+    "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
+    "headline": "Documentation Index",
+    "summary": "Fetch the complete documentation index at: /docs/llms.txt"
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Claude Code",
+    "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
+    "headline": "Getting started",
+    "summary": "Overview Quickstart Changelog"
+  },
+  {
+    "date": "2026-06-25",
+    "source": "Claude Code",
+    "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
+    "headline": "Core concepts",
+    "summary": "How Claude Code works Extend Claude Code Explore the .claude directory Explore the context window Prompt caching"
+  },
+  {
+    "date": "2026-06-25",
     "source": "Skill Archive",
     "source_url": "https://tjones-gss.github.io/skill_scrape",
     "headline": "107 skills archived and live",
