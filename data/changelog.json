@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-06-29",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Cloud agents on mobile",
+    "summary": "Open the Cursor mobile app, choose a repo, and launch an agent the same way you would on the desktop app. Pick any frontier model, describe ideas out loud with voice input, and use slash commands to guide Cursor in the right direction."
+  },
+  {
+    "date": "2026-06-29",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Remote Control",
+    "summary": "UseRemote Controlto take an agent you're running on your computer and keep directing it from your phone."
+  },
+  {
+    "date": "2026-06-29",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Live Activities and push notifications",
+    "summary": "Track the status of your agents with Live Activities on your lock screen. Get push notifications when an agent finishes, needs input, or is ready for review."
+  },
+  {
     "date": "2026-06-25",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
