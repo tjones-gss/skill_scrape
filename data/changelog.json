@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-07-01",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Team MCPs in team marketplaces",
+    "summary": "Admins can now configure Team MCP servers once and distribute them across cloud agents, the agents window, IDE, and CLI."
+  },
+  {
+    "date": "2026-07-01",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Marketplace access by organization group",
+    "summary": "Team marketplaces now supportorganization groups, in addition to team-level SCIM directory groups."
+  },
+  {
     "date": "2026-06-29",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
