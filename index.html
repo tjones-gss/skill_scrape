@@ -368,9 +368,9 @@
     </div>
     <div class="hero-stats reveal rd3">
       <div class="hstat"><div class="n" data-target="25">0</div><div class="l">Repositories</div></div>
-      <div class="hstat"><div class="n" data-target="107" id="hero-skills">0</div><div class="l">Skills</div></div>
-      <div class="hstat"><div class="n" data-target="20" id="hero-days">0</div><div class="l">Days Logged</div></div>
-      <div class="hstat"><div class="n" data-target="4">0</div><div class="l">Flagship Projects</div></div>
+      <div class="hstat"><div class="n" id="hero-skills">—</div><div class="l">Skills</div></div>
+      <div class="hstat"><div class="n" id="hero-days">—</div><div class="l">Days Logged</div></div>
+      <div class="hstat"><div class="n" id="hero-projects">—</div><div class="l">Flagship Projects</div></div>
     </div>
   </div>
 </header>
@@ -381,28 +381,28 @@
     <div class="explore-grid reveal">
       <a class="ex-card c-gold" href="#projects">
         <div class="ex-ico">🛠️</div>
-        <div class="ex-count" id="ex-projects">4</div>
+        <div class="ex-count" id="ex-projects">—</div>
         <div class="ex-name">Projects</div>
         <div class="ex-note">Governance, orchestration & eval frameworks</div>
         <span class="ex-go">Browse →</span>
       </a>
       <a class="ex-card c-violet" href="#feed">
         <div class="ex-ico">📡</div>
-        <div class="ex-count" id="ex-feed">20</div>
+        <div class="ex-count" id="ex-feed">—</div>
         <div class="ex-name">Daily Feed</div>
         <div class="ex-note">What's new in AI dev, every morning</div>
         <span class="ex-go">Read the log →</span>
       </a>
       <a class="ex-card c-teal" href="#skills">
         <div class="ex-ico">✦</div>
-        <div class="ex-count" id="ex-skills">107</div>
+        <div class="ex-count" id="ex-skills">—</div>
         <div class="ex-name">Skills</div>
         <div class="ex-note">A searchable library of AI tactics & prompts</div>
         <span class="ex-go">Search skills →</span>
       </a>
       <a class="ex-card c-coral" href="#tools">
         <div class="ex-ico">⚙️</div>
-        <div class="ex-count" id="ex-tools">5</div>
+        <div class="ex-count" id="ex-tools">—</div>
         <div class="ex-name">Tools</div>
         <div class="ex-note">HUDs, prompt utilities & workspaces</div>
         <span class="ex-go">See tools →</span>
@@ -441,7 +441,7 @@
     <h2 class="sec-title">Skills Library</h2>
     <p class="sec-desc">Prompts, tactics, and frameworks worth keeping — searchable and filterable by topic.</p>
     <div class="skills-top reveal">
-      <div class="skills-big"><div class="n" id="skills-big">107</div><div class="l">Skills</div></div>
+      <div class="skills-big"><div class="n" id="skills-big">—</div><div class="l">Skills</div></div>
       <div class="skills-note">
         <p>A curated library sourced from <a href="https://www.theneurondaily.com/" target="_blank">The Neuron Daily</a> plus custom skills. Each has its own detail page, and the collection grows on its own each day.</p>
         <div class="row">
@@ -2867,6 +2867,7 @@ async function loadHub(){
   renderProjects(h.projects); renderTools(h.tools); renderConfigs(h.configs);
   document.getElementById('ex-projects').textContent=h.projects.length;
   document.getElementById('ex-tools').textContent=h.tools.length;
+  animateTo(document.getElementById('hero-projects'), h.projects.length);
 }
 function renderProjects(ps){
   document.getElementById('project-grid').innerHTML=ps.map(p=>`
@@ -2910,7 +2911,7 @@ async function loadFeed(){
   const d=await getData('data/learnings.json','learnings-data'); if(!d) return;
   feed=d.entries||[]; if(!feed.length) return;
   document.getElementById('ex-feed').textContent=feed.length;
-  const hd=document.getElementById('hero-days'); if(hd) hd.textContent=feed.length;
+  animateTo(document.getElementById('hero-days'), feed.length);
   const hl=feed.reduce((n,e)=>n+(e.headline_count||0),0), ac=feed.reduce((n,e)=>n+(e.action_count||0),0);
   const first=d.meta?.first||feed[feed.length-1].date, latest=d.meta?.latest||feed[0].date;
   const span=Math.round((new Date(latest)-new Date(first))/864e5)+1;
@@ -2955,10 +2956,12 @@ function renderFeed(){
 let skills=[],skCat='all';const SK_N=36;let skOpen=false;
 async function loadSkills(){
   try{skills=await(await fetch('data/skills.json')).json();}catch{skills=[];}
-  const n=skills.length||107;
-  document.getElementById('skills-big').textContent=n;
-  document.getElementById('ex-skills').textContent=n;
-  const hs=document.getElementById('hero-skills'); if(hs&&skills.length) hs.dataset.target=n;
+  const n=skills.length;
+  if(n){
+    document.getElementById('skills-big').textContent=n;
+    document.getElementById('ex-skills').textContent=n;
+    animateTo(document.getElementById('hero-skills'), n);
+  }
   if(skills.length){
     const cats=[...new Set(skills.map(s=>s.category).filter(Boolean))].sort();
     const bar=document.getElementById('cat-bar');
@@ -2999,12 +3002,14 @@ function initReveal(){
 }
 
 /* ═══ NUMBER ANIM ═══ */
+function animateTo(el,target){
+  if(!el||!Number.isFinite(target))return;
+  const dur=900,st=performance.now();
+  const tick=now=>{const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(tick);};
+  requestAnimationFrame(tick);
+}
 function animNums(){
-  document.querySelectorAll('.hstat .n[data-target]').forEach(el=>{
-    const t=+el.dataset.target,dur=950,st=performance.now();
-    const tick=now=>{const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(t*e);if(p<1)requestAnimationFrame(tick);};
-    requestAnimationFrame(tick);
-  });
+  document.querySelectorAll('.hstat .n[data-target]').forEach(el=>animateTo(el,+el.dataset.target));
 }
 
 /* ═══ BACK TO TOP + SHORTCUTS ═══ */
