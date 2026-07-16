@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "Trav's Agentic Hub",
+    "tagline": "Tools, skills, and frameworks for agentic AI engineering",
+    "author": "tjones-gss",
+    "github": "https://github.com/tjones-gss",
+    "updated": "2026-07-15"
+  },
+  "projects": [
+    {
+      "name": "Mission Control",
+      "slug": "mission-control",
+      "repo": "https://github.com/tjones-gss/mission-control",
+      "description": "Open-source governance cockpit for Claude Code agents. Live multi-project oversight, risk-typed approval gates, audit trail, fleet orchestration, and AFK webhooks.",
+      "version": "v0.6.0",
+      "stack": ["Node.js", "React", "Python", "SQLite"],
+      "status": "active",
+      "commits": 329,
+      "category": "governance"
+    },
+    {
+      "name": "Adaptive Harness",
+      "slug": "adaptive-agentic-engineering-harness",
+      "repo": "https://github.com/tjones-gss/adaptive-agentic-engineering-harness",
+      "description": "Control plane for AI coding agents. Mission scope, dangerous command blocking, quality gates, human approval, session memory. 8 pipeline modes.",
+      "version": "v5.3.0",
+      "stack": ["Python", "Shell"],
+      "status": "stable",
+      "commits": 7,
+      "category": "harness"
+    },
+    {
+      "name": "Auto-Improve",
+      "slug": "auto-improve",
+      "repo": "https://github.com/tjones-gss/auto-improve",
+      "description": "AI judge loop mechanism — automated evaluation and improvement cycles for agent output quality.",
+      "stack": ["TypeScript"],
+      "status": "experimental",
+      "category": "eval"
+    },
+    {
+      "name": "AI Doc",
+      "slug": "ai_doc",
+      "repo": "https://github.com/tjones-gss/ai_doc",
+      "site": "https://tjones-gss.github.io/ai_doc/",
+      "description": "Living Docusaurus documentation for how GSS engineering uses AI tools — Cursor, Claude Code, Codex, MCP servers, COBOL workflows.",
+      "stack": ["Docusaurus", "React", "Node.js"],
+      "status": "active",
+      "commits": 72,
+      "category": "docs"
+    }
+  ],
+  "tools": [
+    {
+      "name": "AI Usage Overlays",
+      "slug": "ai-usage-overlays",
+      "repo": "https://github.com/tjones-gss/ai-usage-overlays",
+      "description": "Windows HUD overlays showing real-time Claude Code and Cursor usage stats.",
+      "stack": ["PowerShell"],
+      "stars": 2
+    },
+    {
+      "name": "Prompt Enhance",
+      "slug": "prompt-enhance",
+      "repo": "https://github.com/tjones-gss/prompt-enhance",
+      "description": "Prompt enhancer for Cursor IDE — refines and improves prompts before sending.",
+      "stack": ["JavaScript"]
+    },
+    {
+      "name": "Prompt Gen",
+      "slug": "prompt-gen",
+      "repo": "https://github.com/tjones-gss/prompt-gen",
+      "description": "Prompt generation tool aimed at beginners learning to work with AI agents.",
+      "stack": ["JavaScript"]
+    },
+    {
+      "name": "Cursor Agent Workspace",
+      "slug": "cursor_agent_workspace",
+      "repo": "https://github.com/tjones-gss/cursor_agent_workspace",
+      "description": "Cloud Cursor agent artifact drop zone — staging area for agent-produced work.",
+      "stack": []
+    },
+    {
+      "name": "Skunkswork",
+      "slug": "skunkswork",
+      "repo": "https://github.com/tjones-gss/skunkswork",
+      "description": "Research tool for experimental investigations.",
+      "stack": ["Python"]
+    }
+  ],
+  "skills_meta": {
+    "neuron_count": 107,
+    "custom_skills": [
+      {
+        "name": "/overcheck",
+        "description": "Reviews uncommitted diffs for overengineering — premature abstraction, speculative features, drive-by changes.",
+        "source": "skills repo"
+      }
+    ],
+    "skills_json": "data/skills.json"
+  },
+  "configs": [
+    {
+      "name": "Claude Agent Kit",
+      "slug": "claude-agent-kit",
+      "repo": "https://github.com/tjones-gss/claude-agent-kit",
+      "description": "Forked agents/skills/hooks test area for Claude Code extensibility."
+    },
+    {
+      "name": "Dotfiles",
+      "slug": "dotfiles",
+      "repo": "https://github.com/tjones-gss/dotfiles",
+      "description": "Dev setup kit with Claude Code configs, shell settings, and tool preferences.",
+      "private": true
+    },
+    {
+      "name": "LLM Docs MCP",
+      "slug": "llm-docs-mcp",
+      "repo": "https://github.com/tjones-gss/llm-docs-mcp",
+      "description": "Personal LLM documentation MCP server + knowledge base.",
+      "private": true
+    }
+  ]
+}

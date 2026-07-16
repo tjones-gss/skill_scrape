@@ -4,7 +4,7 @@
 Walks ../AI_Skills_Neuron/, parses each skill's README.md (+ prompt.md), assigns
 a category by keyword matching, and writes:
 
-    index.html                  -- hub with searchable/filterable card grid
+    skills.html         -- skills searchable/filterable card grid
     skills/<slug>/index.html     -- one self-contained page per skill
     README.md                    -- minimal project readme
 
@@ -314,7 +314,7 @@ def skill_page(skill):
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="../../index.html">← All Skills</a>
+  <a class="back" href="../../skills.html">← All Skills</a>
   <h1>{title}</h1>
   <div class="meta-row">{meta_row}</div>
 
@@ -682,7 +682,7 @@ def build_site(skills):
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(skill_page(s), encoding="utf-8")
 
-    (ROOT / "index.html").write_text(index_page(skills), encoding="utf-8")
+    (ROOT / "skills.html").write_text(index_page(skills), encoding="utf-8")
     (ROOT / "README.md").write_text(readme_text(len(skills)), encoding="utf-8")
 
     dist = {}

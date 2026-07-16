@@ -3,208 +3,1267 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neuron Daily AI Skills</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Trav's Agentic Hub</title>
 <style>
-:root {
-  --bg: #0d0d12;
-  --surface: #13131a;
-  --border: #1e1e2e;
-  --text: #e2e2f0;
-  --muted: #6b6b8a;
-  --accent: #7c5cfc;
-  --accent-glow: rgba(124,92,252,0.15);
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.pill {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  color: var(--pill);
-  background: color-mix(in srgb, var(--pill) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--pill) 35%, transparent);
-  white-space: nowrap;
-}
+  :root {
+    --bg: #08090d;
+    --surface: #0f1117;
+    --surface-2: #161820;
+    --surface-3: #1c1f2a;
+    --border: rgba(255,255,255,.07);
+    --border-hover: rgba(255,255,255,.18);
+    --ink: #eae8e3;
+    --muted: #7a7670;
+    --dim: #4a4742;
+    --accent: #3b82f6;
+    --accent-soft: rgba(59,130,246,.12);
+    --accent-glow: rgba(59,130,246,.25);
+    --green: #22c55e;
+    --green-soft: rgba(34,197,94,.12);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245,158,11,.12);
+    --red: #ef4444;
+    --purple: #8b5cf6;
+    --purple-soft: rgba(139,92,246,.12);
+    --cyan: #06b6d4;
+    --cyan-soft: rgba(6,182,212,.12);
+    --display: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --body: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    --mono: "SF Mono", "Cascadia Code", "Courier New", monospace;
+  }
 
-.hero {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem 1.5rem;
-  text-align: center;
-}
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-  background: linear-gradient(120deg, var(--text), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.subtitle { color: var(--muted); font-size: 1.05rem; margin: 0 auto 2rem; max-width: 640px; }
-.search {
-  width: 100%;
-  max-width: 560px;
-  padding: 0.85rem 1.1rem;
-  font-size: 1rem;
-  font-family: inherit;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  outline: none;
-  transition: border-color .15s, box-shadow .15s;
-}
-.search:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-.fpill {
-  font-family: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  cursor: pointer;
-  color: var(--muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  transition: all .15s;
-}
-.fpill:hover { color: var(--text); border-color: var(--muted); }
-.fpill[data-cat="All"].active { color: #fff; background: var(--accent); border-color: var(--accent); }
-.fpill.active:not([data-cat="All"]) {
-  color: var(--pill);
-  border-color: var(--pill);
-  background: color-mix(in srgb, var(--pill) 16%, transparent);
-}
-main { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero { padding-top: 2.5rem; } }
-.card {
-  display: flex;
-  flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.25rem;
-  color: inherit;
-  text-decoration: none;
-  transition: transform .15s, border-color .15s, box-shadow .15s;
-}
-.card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent);
-  box-shadow: 0 8px 30px var(--accent-glow);
-  text-decoration: none;
-}
-.card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.85rem; }
-.card-date { color: var(--muted); font-size: 0.75rem; }
-.card-title { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.5rem; line-height: 1.35; }
-.card-summary { color: var(--muted); font-size: 0.88rem; margin: 0 0 1rem; flex: 1; }
-.card-link { color: var(--accent); font-weight: 600; font-size: 0.85rem; }
-.empty { text-align: center; color: var(--muted); padding: 3rem 0; }
-.page-footer { text-align: center; color: var(--muted); padding: 2rem 1.5rem 3rem; font-size: 0.85rem; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Grain */
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 200;
+    opacity: .035; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color .2s; }
+  a:hover { color: #60a5fa; }
+
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+  .wrap-wide { max-width: 1300px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ══════════════════════════════════════════
+     NAV
+  ══════════════════════════════════════════ */
+  nav {
+    position: sticky; top: 0; z-index: 80;
+    background: rgba(8,9,13,.82);
+    backdrop-filter: blur(16px) saturate(1.6);
+    border-bottom: 1px solid var(--border);
+    padding: .65rem 0;
+  }
+  nav .wrap {
+    display: flex; align-items: center; gap: 2rem;
+    font-family: var(--display); font-size: .82rem;
+  }
+  .logo {
+    font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em;
+    color: var(--ink); display: flex; align-items: center; gap: .6rem;
+    white-space: nowrap;
+  }
+  .logo-icon {
+    width: 26px; height: 26px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; color: #fff; font-weight: 900;
+  }
+  .nav-links { display: flex; gap: 1.5rem; margin-left: auto; align-items: center; }
+  nav a { color: var(--muted); font-weight: 500; transition: color .2s; }
+  nav a:hover { color: var(--ink); }
+  .nav-pip {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 8px var(--green);
+    display: inline-block; margin-right: .3rem;
+  }
+  .gh-link {
+    display: flex; align-items: center; gap: .35rem;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 6px; padding: .3rem .65rem;
+    font-size: .78rem; color: var(--muted) !important;
+    transition: all .2s;
+  }
+  .gh-link:hover { border-color: var(--border-hover); color: var(--ink) !important; }
+  .gh-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* ══════════════════════════════════════════
+     HERO — canvas particle field
+  ══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    padding: 6rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  #hero-canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: .5;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: .72rem;
+    color: var(--accent); text-transform: uppercase;
+    letter-spacing: .15em; margin-bottom: .75rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .hero-eyebrow .pulse {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: 4.2rem; font-weight: 800;
+    letter-spacing: -.045em; line-height: .95;
+    margin-bottom: 1rem;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 50%, var(--purple) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .tagline {
+    font-size: 1.15rem; color: var(--muted);
+    max-width: 52ch; line-height: 1.55;
+  }
+
+  /* Hero stats row */
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; margin-top: 2.5rem;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    transition: border-color .3s;
+  }
+  .stat-card:hover { border-color: var(--border-hover); }
+  .stat-card .num {
+    font-family: var(--display);
+    font-size: 2.2rem; font-weight: 800;
+    letter-spacing: -.03em; line-height: 1;
+  }
+  .stat-card .lbl {
+    font-family: var(--display);
+    font-size: .72rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .08em;
+    margin-top: .2rem;
+  }
+  .stat-card .sub {
+    font-family: var(--mono);
+    font-size: .65rem; color: var(--dim);
+    margin-top: .35rem;
+  }
+
+  /* ══════════════════════════════════════════
+     DAILY PULSE (bots)
+  ══════════════════════════════════════════ */
+  .pulse-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: .85rem 0;
+    font-family: var(--display);
+    font-size: .78rem;
+    overflow: hidden;
+  }
+  .pulse-bar .wrap {
+    display: flex; align-items: center; gap: 2rem;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .pulse-item {
+    display: flex; align-items: center; gap: .5rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .pulse-item .p-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .pulse-item .p-dot.on { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .pulse-item .p-dot.idle { background: var(--amber); }
+  .pulse-label { font-weight: 600; color: var(--ink); }
+
+  /* ══════════════════════════════════════════
+     ARCHITECTURE SVG
+  ══════════════════════════════════════════ */
+  .arch-section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .arch-section h2 {
+    font-family: var(--display);
+    font-size: 1.5rem; font-weight: 700;
+    letter-spacing: -.02em; margin-bottom: .5rem;
+  }
+  .arch-desc {
+    color: var(--muted); font-size: .9rem;
+    max-width: 55ch; margin: 0 auto 2rem;
+  }
+  .arch-svg-wrap {
+    max-width: 860px; margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    overflow-x: auto;
+  }
+  .arch-svg-wrap svg { width: 100%; height: auto; }
+
+  /* ══════════════════════════════════════════
+     SECTIONS
+  ══════════════════════════════════════════ */
+  section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+  .section-head {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: .5rem;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-size: 1.6rem; font-weight: 700;
+    letter-spacing: -.02em;
+  }
+  .section-head .count {
+    font-family: var(--mono); font-size: .75rem; color: var(--muted);
+    background: var(--surface-2); padding: .15rem .55rem; border-radius: 4px;
+  }
+  .section-desc {
+    color: var(--muted); margin-bottom: 2rem;
+    max-width: 70ch; font-size: .92rem;
+  }
+
+  /* ══════════════════════════════════════════
+     PROJECT CARDS (flagship)
+  ══════════════════════════════════════════ */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    transition: border-color .3s, box-shadow .3s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    border-radius: 14px 14px 0 0;
+    opacity: 0; transition: opacity .3s;
+  }
+  .project-card:hover { border-color: var(--border-hover); }
+  .project-card:hover::before { opacity: 1; }
+  .project-card[data-cat="governance"]::before { background: var(--accent); }
+  .project-card[data-cat="harness"]::before { background: var(--purple); }
+  .project-card[data-cat="eval"]::before { background: var(--amber); }
+  .project-card[data-cat="docs"]::before { background: var(--cyan); }
+
+  .card-row-1 { display: flex; align-items: center; gap: .65rem; margin-bottom: .65rem; }
+  .card-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; font-weight: 900; color: #fff;
+    flex-shrink: 0;
+  }
+  .card-icon.governance { background: linear-gradient(135deg, var(--accent), #2563eb); }
+  .card-icon.harness { background: linear-gradient(135deg, var(--purple), #6d28d9); }
+  .card-icon.eval { background: linear-gradient(135deg, var(--amber), #d97706); }
+  .card-icon.docs { background: linear-gradient(135deg, var(--cyan), #0891b2); }
+
+  .card-title-group { flex: 1; }
+  .card-name {
+    font-family: var(--display); font-size: 1.1rem; font-weight: 700;
+  }
+  .card-name a { color: var(--ink); }
+  .card-name a:hover { color: var(--accent); }
+  .card-meta {
+    font-family: var(--mono); font-size: .68rem; color: var(--dim);
+    display: flex; gap: .75rem; margin-top: .1rem;
+  }
+  .version-badge {
+    font-family: var(--mono); font-size: .68rem; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent);
+    padding: .15rem .5rem; border-radius: 5px;
+    white-space: nowrap;
+  }
+  .card-desc {
+    color: var(--muted); font-size: .88rem; line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  .card-features {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    margin-bottom: 1rem;
+  }
+  .feature-chip {
+    font-family: var(--display); font-size: .68rem; font-weight: 600;
+    background: var(--surface-3); color: var(--muted);
+    border: 1px solid var(--border);
+    padding: .2rem .55rem; border-radius: 5px;
+  }
+  .card-footer {
+    display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+    padding-top: .75rem;
+    border-top: 1px solid var(--border);
+  }
+  .tag {
+    font-family: var(--mono); font-size: .66rem;
+    background: var(--surface-2); color: var(--dim);
+    padding: .18rem .45rem; border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .status-pill {
+    font-family: var(--display); font-size: .68rem; font-weight: 600;
+    display: flex; align-items: center; gap: .3rem;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .s-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .s-dot.active { background: var(--green); box-shadow: 0 0 5px var(--green); }
+  .s-dot.stable { background: var(--accent); }
+  .s-dot.experimental { background: var(--amber); }
+  .commits-badge {
+    font-family: var(--mono); font-size: .66rem; color: var(--dim);
+    margin-left: auto;
+  }
+  .site-link {
+    font-family: var(--display); font-size: .75rem; font-weight: 600;
+    display: inline-block; margin-top: .6rem;
+  }
+
+  /* ══════════════════════════════════════════
+     QUICK START
+  ══════════════════════════════════════════ */
+  .quickstart {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .qs-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .qs-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .qs-header {
+    padding: .75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: .6rem;
+    font-family: var(--display); font-size: .82rem; font-weight: 700;
+  }
+  .qs-header .qs-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .qs-body {
+    padding: 1rem 1.25rem;
+    font-family: var(--mono); font-size: .78rem;
+    line-height: 1.8;
+    color: var(--muted);
+    position: relative;
+    overflow-x: auto;
+  }
+  .qs-body .cmd { color: var(--ink); }
+  .qs-body .comment { color: var(--dim); }
+  .qs-body .flag { color: var(--cyan); }
+  .copy-btn {
+    position: absolute; top: .65rem; right: .65rem;
+    background: var(--surface-3); border: 1px solid var(--border);
+    border-radius: 5px; padding: .25rem .55rem;
+    font-family: var(--mono); font-size: .65rem;
+    color: var(--muted); cursor: pointer;
+    transition: all .2s;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--ink); }
+  .copy-btn.copied { color: var(--green); border-color: var(--green); }
+
+  /* ══════════════════════════════════════════
+     SKILLS
+  ══════════════════════════════════════════ */
+  .skills-hero-row {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 1.5rem; margin-bottom: 1.75rem; align-items: stretch;
+  }
+  .skills-big-box {
+    background: linear-gradient(135deg, var(--accent-soft), var(--purple-soft));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .skills-big-box .big-num {
+    font-family: var(--display);
+    font-size: 3.8rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .skills-big-box .big-lbl {
+    font-family: var(--display); font-size: .75rem;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: .1em; margin-top: .2rem;
+  }
+  .skills-info-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .skills-info-box p { color: var(--muted); font-size: .88rem; margin-bottom: .6rem; }
+  .skills-info-box .si-footer {
+    display: flex; gap: 1.5rem; align-items: center; margin-top: .5rem;
+  }
+  .si-link {
+    font-family: var(--display); font-size: .82rem; font-weight: 600;
+  }
+  .si-stat {
+    font-family: var(--mono); font-size: .7rem; color: var(--dim);
+  }
+
+  /* Category filters */
+  .cat-filters {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .cat-btn {
+    font-family: var(--display); font-size: .72rem; font-weight: 600;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: .35rem .7rem;
+    color: var(--muted); cursor: pointer;
+    transition: all .2s;
+  }
+  .cat-btn:hover { border-color: var(--border-hover); color: var(--ink); }
+  .cat-btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+  /* Search */
+  .search-wrap {
+    position: relative; margin-bottom: 1.25rem;
+  }
+  .search-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .7rem 1rem .7rem 2.6rem;
+    color: var(--ink);
+    font-family: var(--body); font-size: .92rem;
+    outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .search-input::placeholder { color: var(--dim); }
+  .search-icon-svg {
+    position: absolute; left: .9rem; top: 50%;
+    transform: translateY(-50%); pointer-events: none;
+    color: var(--dim); width: 16px; height: 16px;
+  }
+  .search-count {
+    position: absolute; right: .9rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono); font-size: .68rem;
+    color: var(--dim);
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: .65rem;
+    max-height: 520px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  .skills-grid::-webkit-scrollbar { width: 3px; }
+  .skills-grid::-webkit-scrollbar-track { background: transparent; }
+  .skills-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: .75rem .95rem;
+    transition: border-color .2s, background .2s;
+    cursor: default;
+  }
+  .skill-card:hover { border-color: var(--border-hover); background: var(--surface-2); }
+  .skill-name {
+    font-family: var(--display); font-size: .82rem; font-weight: 700;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    margin-bottom: .15rem;
+  }
+  .skill-preview {
+    color: var(--muted); font-size: .75rem; line-height: 1.45;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .skill-cat {
+    font-family: var(--mono); font-size: .62rem;
+    color: var(--purple); margin-top: .3rem;
+    display: inline-block;
+  }
+
+  .show-more-btn {
+    display: block; margin: 1.25rem auto 0;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 8px; color: var(--muted);
+    font-family: var(--display); font-size: .8rem; font-weight: 600;
+    padding: .55rem 2rem; cursor: pointer; transition: all .2s;
+  }
+  .show-more-btn:hover { border-color: var(--accent); color: var(--ink); }
+
+  /* ══════════════════════════════════════════
+     TOOL & CONFIG CARDS
+  ══════════════════════════════════════════ */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .tool-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 1.1rem 1.2rem;
+    transition: border-color .25s, background .25s;
+  }
+  .tool-card:hover { border-color: var(--border-hover); background: var(--surface-2); }
+  .tool-name {
+    font-family: var(--display); font-size: .92rem; font-weight: 700;
+    margin-bottom: .3rem;
+  }
+  .tool-name a { color: var(--ink); }
+  .tool-name a:hover { color: var(--accent); }
+  .tool-desc {
+    color: var(--muted); font-size: .8rem; line-height: 1.5;
+  }
+  .tool-stack { margin-top: .55rem; display: flex; gap: .35rem; flex-wrap: wrap; }
+
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .config-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 1.1rem 1.2rem;
+    transition: border-color .25s;
+  }
+  .config-card:hover { border-color: var(--border-hover); }
+  .cfg-name {
+    font-family: var(--display); font-size: .92rem; font-weight: 700;
+    display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem;
+  }
+  .cfg-name a { color: var(--ink); }
+  .cfg-name a:hover { color: var(--accent); }
+  .private-badge {
+    font-family: var(--mono); font-size: .58rem; font-weight: 700;
+    background: rgba(239,68,68,.1); color: var(--red);
+    padding: .12rem .4rem; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .cfg-desc { color: var(--muted); font-size: .8rem; line-height: 1.5; }
+
+  /* ══════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════ */
+  footer {
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: var(--display); font-size: .9rem; font-weight: 700;
+    color: var(--ink); margin-bottom: .5rem;
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+  }
+  .footer-links {
+    display: flex; gap: 1.5rem; justify-content: center;
+    margin-bottom: .75rem;
+    font-family: var(--display); font-size: .78rem;
+  }
+  .footer-links a { color: var(--muted); }
+  .footer-links a:hover { color: var(--ink); }
+  .footer-copy {
+    font-family: var(--display); font-size: .72rem; color: var(--dim);
+  }
+
+  /* ══════════════════════════════════════════
+     SCROLL REVEAL
+  ══════════════════════════════════════════ */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-d1 { transition-delay: .1s; }
+  .reveal-d2 { transition-delay: .2s; }
+  .reveal-d3 { transition-delay: .3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    #hero-canvas { display: none; }
+  }
+
+  /* ══════════════════════════════════════════
+     KEYBOARD SHORTCUT HINT
+  ══════════════════════════════════════════ */
+  .kbd {
+    font-family: var(--mono); font-size: .6rem;
+    background: var(--surface-3); border: 1px solid var(--border);
+    border-radius: 3px; padding: .1rem .3rem;
+    color: var(--dim); vertical-align: middle;
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .skills-hero-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { gap: .6rem; font-size: .72rem; }
+    .gh-link { display: none; }
+    .tool-grid, .skills-grid, .config-grid { grid-template-columns: 1fr; }
+    .qs-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ════════ NAV ════════ -->
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-icon">AH</div>
+      Agentic Hub
+    </div>
+    <div class="nav-links">
+      <a href="#architecture">Map</a>
+      <a href="#projects">Projects</a>
+      <a href="#quickstart">Install</a>
+      <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
+      <a class="gh-link" href="https://github.com/tjones-gss" target="_blank">
+        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        tjones-gss
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
 <header class="hero">
-  <h1>Neuron Daily AI Skills</h1>
-  <p class="subtitle">107 prompts, tactics &amp; frameworks sourced from The Neuron Daily newsletter</p>
-  <input id="search" class="search" type="search" placeholder="Search skills…" autocomplete="off">
-  <div class="filters">
-      <button class="fpill active" data-cat="All">All</button>
-      <button class="fpill" data-cat="Prompting" style="--pill:#7c5cfc">Prompting</button>
-      <button class="fpill" data-cat="Agents" style="--pill:#3b82f6">Agents</button>
-      <button class="fpill" data-cat="Coding" style="--pill:#10b981">Coding</button>
-      <button class="fpill" data-cat="Productivity" style="--pill:#f59e0b">Productivity</button>
-      <button class="fpill" data-cat="Security" style="--pill:#ef4444">Security</button>
-      <button class="fpill" data-cat="Tools &amp; Platforms" style="--pill:#06b6d4">Tools &amp; Platforms</button>
-      <button class="fpill" data-cat="Content" style="--pill:#ec4899">Content</button>
-      <button class="fpill" data-cat="Learning" style="--pill:#8b5cf6">Learning</button>
+  <canvas id="hero-canvas"></canvas>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow reveal">
+      <span class="pulse"></span>
+      DAILY AUTO-SYNC ACTIVE — LAST RUN TODAY
+    </div>
+    <h1 class="reveal reveal-d1">Trav's<br><span class="grad">Agentic Hub</span></h1>
+    <p class="tagline reveal reveal-d2">Tools, skills, and frameworks for agentic AI engineering — built in the open, updated daily by bots and humans.</p>
+
+    <div class="hero-stats reveal reveal-d3">
+      <div class="stat-card">
+        <div class="num" data-target="25">0</div>
+        <div class="lbl">Repositories</div>
+        <div class="sub">13 public agentic</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" data-target="107">0</div>
+        <div class="lbl">Skills Cataloged</div>
+        <div class="sub">from Neuron Daily</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" data-target="4">0</div>
+        <div class="lbl">Flagship Projects</div>
+        <div class="sub">governance → eval</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" data-target="3">0</div>
+        <div class="lbl">Daily Bots</div>
+        <div class="sub">scraper + docs + sync</div>
+      </div>
+    </div>
   </div>
 </header>
 
-<main>
-  <div id="grid" class="grid"></div>
-  <p id="empty" class="empty" hidden>No skills match your search.</p>
-</main>
+<!-- ════════ DAILY PULSE ════════ -->
+<div class="pulse-bar">
+  <div class="wrap">
+    <div class="pulse-item">
+      <span class="p-dot on"></span>
+      <span class="pulse-label">skill_scrape</span> daily scraper — last run today
+    </div>
+    <div class="pulse-item">
+      <span class="p-dot on"></span>
+      <span class="pulse-label">ai_doc</span> doc-refresh-bot — last run 4h ago
+    </div>
+    <div class="pulse-item">
+      <span class="p-dot on"></span>
+      <span class="pulse-label">harness</span> daily briefing sync — 11th consecutive
+    </div>
+    <div class="pulse-item">
+      <span class="p-dot idle"></span>
+      <span class="pulse-label">mission-control</span> v0.6.0 — 2 PRs open
+    </div>
+  </div>
+</div>
 
-<footer class="page-footer">Sourced from <a href="https://www.theneurondaily.com" target="_blank" rel="noopener">theneurondaily.com</a></footer>
+<!-- ════════ ARCHITECTURE ════════ -->
+<div class="arch-section reveal" id="architecture">
+  <div class="wrap">
+    <h2>How It Fits Together</h2>
+    <p class="arch-desc">The hub connects governance, tooling, documentation, and skills into one ecosystem.</p>
+    <div class="arch-svg-wrap">
+      <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .a-text { font-family: "Avenir Next","Segoe UI",system-ui,sans-serif; fill: #eae8e3; }
+          .a-muted { font-family: "Avenir Next","Segoe UI",system-ui,sans-serif; fill: #7a7670; }
+          .a-mono { font-family: "SF Mono","Cascadia Code","Courier New",monospace; fill: #4a4742; }
+          .a-box { fill: #161820; stroke: rgba(255,255,255,.1); stroke-width: 1; rx: 10; }
+          .a-box-accent { fill: #0f1117; stroke: #3b82f6; stroke-width: 1.5; rx: 12; }
+          .a-line { stroke: rgba(255,255,255,.08); stroke-width: 1.5; }
+          .a-line-accent { stroke: rgba(59,130,246,.3); stroke-width: 1.5; }
+          .a-dot { fill: #22c55e; }
+        </style>
+
+        <!-- Center hub -->
+        <rect x="310" y="120" width="180" height="80" class="a-box-accent"/>
+        <text x="400" y="150" text-anchor="middle" class="a-text" font-size="13" font-weight="700">Agentic Hub</text>
+        <text x="400" y="167" text-anchor="middle" class="a-muted" font-size="9">GitHub Pages • daily build</text>
+        <text x="400" y="182" text-anchor="middle" class="a-mono" font-size="8">hub.json + skills.json</text>
+        <circle cx="325" cy="133" r="4" class="a-dot"/>
+
+        <!-- Mission Control (top left) -->
+        <rect x="30" y="20" width="170" height="65" class="a-box"/>
+        <text x="115" y="44" text-anchor="middle" class="a-text" font-size="11" font-weight="700">Mission Control</text>
+        <text x="115" y="58" text-anchor="middle" class="a-muted" font-size="8">governance cockpit</text>
+        <text x="115" y="70" text-anchor="middle" class="a-mono" font-size="7">v0.6.0 • 329 commits</text>
+        <line x1="200" y1="52" x2="310" y2="140" class="a-line-accent"/>
+
+        <!-- Adaptive Harness (top right) -->
+        <rect x="600" y="20" width="170" height="65" class="a-box"/>
+        <text x="685" y="44" text-anchor="middle" class="a-text" font-size="11" font-weight="700">Adaptive Harness</text>
+        <text x="685" y="58" text-anchor="middle" class="a-muted" font-size="8">agent control plane</text>
+        <text x="685" y="70" text-anchor="middle" class="a-mono" font-size="7">v5.3.0 • 8 pipelines</text>
+        <line x1="600" y1="52" x2="490" y2="140" class="a-line-accent"/>
+
+        <!-- AI Doc (bottom left) -->
+        <rect x="30" y="230" width="170" height="65" class="a-box"/>
+        <text x="115" y="254" text-anchor="middle" class="a-text" font-size="11" font-weight="700">AI Doc</text>
+        <text x="115" y="268" text-anchor="middle" class="a-muted" font-size="8">Docusaurus • daily refresh</text>
+        <text x="115" y="280" text-anchor="middle" class="a-mono" font-size="7">72 commits • 38 deploys</text>
+        <circle cx="45" cy="243" r="4" class="a-dot"/>
+        <line x1="200" y1="262" x2="310" y2="180" class="a-line-accent"/>
+
+        <!-- Auto-Improve (bottom right) -->
+        <rect x="600" y="230" width="170" height="65" class="a-box"/>
+        <text x="685" y="254" text-anchor="middle" class="a-text" font-size="11" font-weight="700">Auto-Improve</text>
+        <text x="685" y="268" text-anchor="middle" class="a-muted" font-size="8">AI judge loop</text>
+        <text x="685" y="280" text-anchor="middle" class="a-mono" font-size="7">TypeScript • eval</text>
+        <line x1="600" y1="262" x2="490" y2="180" class="a-line-accent"/>
+
+        <!-- Skills (left middle) -->
+        <rect x="30" y="125" width="130" height="50" class="a-box"/>
+        <text x="95" y="147" text-anchor="middle" class="a-text" font-size="10" font-weight="600">107 Skills</text>
+        <text x="95" y="162" text-anchor="middle" class="a-muted" font-size="8">Neuron + custom</text>
+        <line x1="160" y1="150" x2="310" y2="155" class="a-line"/>
+
+        <!-- Tools (right middle) -->
+        <rect x="640" y="125" width="130" height="50" class="a-box"/>
+        <text x="705" y="147" text-anchor="middle" class="a-text" font-size="10" font-weight="600">5 Tools</text>
+        <text x="705" y="162" text-anchor="middle" class="a-muted" font-size="8">HUDs • prompts</text>
+        <line x1="640" y1="150" x2="490" y2="155" class="a-line"/>
+
+        <!-- Daily sync arrows -->
+        <text x="400" y="24" text-anchor="middle" class="a-mono" font-size="8">daily GitHub Actions sync</text>
+        <line x1="310" y1="30" x2="490" y2="30" class="a-line" stroke-dasharray="3 3"/>
+
+        <!-- Bottom label -->
+        <text x="400" y="312" text-anchor="middle" class="a-mono" font-size="8">dotfiles + llm-docs-mcp feed configs privately</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PROJECTS ════════ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Flagship Projects</h2>
+      <span class="count" id="project-count">4</span>
+    </div>
+    <p class="section-desc">The core repos — governance, orchestration, documentation, and evaluation for agentic workflows.</p>
+    <div class="project-grid" id="project-grid"></div>
+  </div>
+</section>
+
+<!-- ════════ QUICK START ════════ -->
+<section class="quickstart reveal" id="quickstart">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Quick Start</h2>
+    </div>
+    <p class="section-desc">Get running in under a minute.</p>
+    <div class="qs-grid">
+      <div class="qs-card">
+        <div class="qs-header">
+          <span class="qs-dot" style="background:var(--accent)"></span>
+          Mission Control
+        </div>
+        <div class="qs-body" id="qs-mc">
+          <button class="copy-btn" onclick="copyQS(this,'qs-mc')">copy</button>
+          <span class="comment"># Install the governance cockpit</span><br>
+          <span class="cmd">npx @tjones-gss/mission-control</span><br><br>
+          <span class="comment"># Or clone and run locally</span><br>
+          <span class="cmd">git clone</span> https://github.com/tjones-gss/mission-control<br>
+          <span class="cmd">cd</span> mission-control && <span class="cmd">npm install</span><br>
+          <span class="cmd">npm start</span>
+        </div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-header">
+          <span class="qs-dot" style="background:var(--purple)"></span>
+          Adaptive Harness
+        </div>
+        <div class="qs-body" id="qs-harness">
+          <button class="copy-btn" onclick="copyQS(this,'qs-harness')">copy</button>
+          <span class="comment"># Add rails to any project</span><br>
+          <span class="cmd">git clone</span> https://github.com/tjones-gss/adaptive-agentic-engineering-harness<br>
+          <span class="cmd">cd</span> adaptive-agentic-engineering-harness<br>
+          <span class="cmd">python</span> tools/init.py <span class="flag">--mode</span> feature-development
+        </div>
+      </div>
+      <div class="qs-card">
+        <div class="qs-header">
+          <span class="qs-dot" style="background:var(--green)"></span>
+          Skills
+        </div>
+        <div class="qs-body" id="qs-skills">
+          <button class="copy-btn" onclick="copyQS(this,'qs-skills')">copy</button>
+          <span class="comment"># Install the /overcheck skill</span><br>
+          <span class="cmd">git clone</span> https://github.com/tjones-gss/skills<br>
+          <span class="cmd">cd</span> skills && <span class="cmd">bash</span> install.sh<br><br>
+          <span class="comment"># Then in Claude Code:</span><br>
+          <span class="cmd">/overcheck</span> <span class="comment"># reviews diffs for overengineering</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SKILLS ════════ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills Catalog</h2>
+      <span class="count" id="skills-count-badge">107</span>
+    </div>
+    <div class="skills-hero-row reveal">
+      <div class="skills-big-box">
+        <div class="big-num" id="skills-big-num">107</div>
+        <div class="big-lbl">AI Skills</div>
+      </div>
+      <div class="skills-info-box">
+        <p>A searchable archive of AI skills — prompts, tactics, and frameworks sourced from <a href="https://www.theneurondaily.com/" target="_blank">The Neuron Daily</a>, plus custom skills from the workshop.</p>
+        <p>Updated daily by GitHub Actions. Each skill has its own detail page.</p>
+        <div class="si-footer">
+          <a class="si-link" href="https://tjones-gss.github.io/skill_scrape/" target="_blank">Full skills site →</a>
+          <span class="si-stat">+ 1 custom (/overcheck)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-filters reveal" id="cat-filters">
+      <button class="cat-btn active" data-cat="all">All</button>
+    </div>
+
+    <div class="search-wrap reveal">
+      <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" class="search-input" id="skills-search" placeholder="Search skills..." aria-label="Search skills">
+      <span class="search-count" id="search-count"></span>
+    </div>
+
+    <div class="skills-grid reveal" id="skills-grid"></div>
+    <button class="show-more-btn" id="show-more-btn" style="display:none">Show all</button>
+  </div>
+</section>
+
+<!-- ════════ TOOLS ════════ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Tools & Utilities</h2>
+      <span class="count" id="tool-count">5</span>
+    </div>
+    <p class="section-desc">Standalone utilities — HUDs, prompt engineering, workspaces, and research instruments.</p>
+    <div class="tool-grid" id="tool-grid"></div>
+  </div>
+</section>
+
+<!-- ════════ CONFIGS ════════ -->
+<section id="configs">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Configs & Infrastructure</h2>
+      <span class="count" id="config-count">3</span>
+    </div>
+    <p class="section-desc">The connective tissue — dotfiles, MCP servers, and agent extensibility kits.</p>
+    <div class="config-grid" id="config-grid"></div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">
+      <div class="logo-icon" style="width:20px;height:20px;border-radius:5px;font-size:.55rem">AH</div>
+      Agentic Hub
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/tjones-gss">GitHub</a>
+      <a href="https://tjones-gss.github.io/ai_doc/">AI Docs</a>
+      <a href="https://tjones-gss.github.io/skill_scrape/">Skills Archive</a>
+      <a href="https://github.com/tjones-gss/mission-control">Mission Control</a>
+    </div>
+    <p class="footer-copy">Built by <a href="https://github.com/tjones-gss">tjones-gss</a> · Updated daily · Powered by GitHub Actions + Claude + Cursor</p>
+  </div>
+</footer>
 
 <script>
-const SKILLS = [{"slug": "ai-for-personal-operations-apply-5-level-stack-to-your-life", "title": "AI for Personal Operations: Apply the 5-Level Stack to Your Life", "date": "", "category": "Productivity", "summary": "Everything taught about AI at work applies just as well to the project of running your life. Your inbox, calendar, travel plans, medical records, home maintenance schedule — that's your organization."}, {"slug": "an-openclaw-alt-for-normies", "title": "An OpenClaw Alternative for Non-Technical Users: Poke", "date": "", "category": "Tools & Platforms", "summary": "Non-technical people who want to try agentic AI tools often get stuck at the first step: installing a dev environment, learning GitHub, or figuring out which terminal command won't break things. Poke frames AI assistance as a simple back…"}, {"slug": "break-big-tasks-into-stages", "title": "Break Big Tasks Into Stages", "date": "", "category": "Content", "summary": "One of the easiest ways to get mediocre results from AI is to hand it a huge job and expect one great answer. That's how you get something polished, generic, and not all that useful."}, {"slug": "below-shows-you-how-to-steal-it", "title": "Build a Free, Fully Linked Second Brain in 60 Seconds", "date": "", "category": "Learning", "summary": "An X user shared a four-line prompt that turns any pile of raw notes into a structured second brain. No vector databases, no RAG, no $20/month app."}, {"slug": "build-a-morning-digest-agent-that-knows-your-entire-work-lif", "title": "Build a Morning Digest Agent That Knows Your Entire Work Life", "date": "", "category": "Productivity", "summary": "Every person at Every (the media company) has their own AI agent running 24/7 in Slack — pulling together morning briefings, handling bug reports, doing book notes, and even calling you hands-free when needed. You don't need a hosted pro…"}, {"slug": "notebooklm-in-gemini", "title": "Build a Persistent AI Notebook for Any Ongoing Project", "date": "", "category": "Content", "summary": "If you're working on something ongoing — job search, research project, presentation, content series, side hustle — stop treating every AI chat like a one-time conversation. Give it a home."}, {"slug": "build-a-personal-executive-assistant-in-claude-cowork", "title": "Build a Personal Executive Assistant in Claude Cowork (Including Web Scraping, No Zapier Required)", "date": "", "category": "Productivity", "summary": "As of Q1 2026, you can build a full personal executive assistant in Claude Cowork with web scraping, email management, calendar coordination, and scheduled briefings — entirely natively, no Zapier or other middleware required. This is a…"}, {"slug": "chatgpt-just-got-a-work-mode", "title": "ChatGPT Just Got a Work Mode", "date": "", "category": "Tools & Platforms", "summary": "Workspace Agents in ChatGPT are no-code agents you direct with plain language. Give them a task, they run it on a schedule, plug into your tools, and come back with results."}, {"slug": "connect-chatgpt-to-vidiq-for-better-youtube-insights", "title": "Connect ChatGPT to vidIQ for Better YouTube Insights", "date": "May 31, 2026", "category": "Tools & Platforms", "summary": "Connect vidIQ (a YouTube analytics tool) to ChatGPT so it can pull your real channel stats instead of giving generic advice. Run three prompts in sequence to find what's working in your niche, analyze your outlier videos, and generate da…"}, {"slug": "copilot-cowork-is-the-new-agentic-layer-in-microsoft-365-tha", "title": "Copilot Cowork: The Agentic Layer in Microsoft 365", "date": "", "category": "Tools & Platforms", "summary": "Copilot Cowork moves beyond chatting with Copilot to actually delegating work. Instead of asking Copilot a question and getting a response, you describe an outcome and Cowork builds a plan, executes across your apps, and checks in at cle…"}, {"slug": "cut-coding-agent-token-waste-by-routing-work", "title": "Cut Coding-Agent Token Waste by Routing Work", "date": "June 12, 2026", "category": "Coding", "summary": "A routing workflow from CJ Zafir that reportedly cut Claude Code limit burn by 50%: use Claude for planning and final review, then hand actual implementation to Codex GPT-5.5. Let Claude do the thinking and quality control; let Codex do…"}, {"slug": "debug-with-screenshots-not-vibes", "title": "Debug with Screenshots, Not Vibes", "date": "June 4, 2026", "category": "Coding", "summary": "When your AI build gets stuck and more detailed descriptions aren't helping, stop describing harder — show it. Screenshot what you see, sketch or screenshot what you wanted, and ask the AI to compare the two."}, {"slug": "debug-your-prompt-before-you-rewrite-it", "title": "Debug Your Prompt Before You Rewrite It", "date": "June 3, 2026", "category": "Prompting", "summary": "Most \"bad prompts\" are really untested systems. Before rewriting everything, build a tiny eval suite with three test types: a control case the model should always pass, edge cases where it failed before, and capability-boundary cases whe…"}, {"slug": "design-goals-and-hooks-for-normal-work", "title": "Design Goals and Hooks for Normal Work", "date": "", "category": "Agents", "summary": "The best agent workflows have two ingredients: a goal that defines \"done\" and hooks that keep the agent consistent while it works. - A goal is the finish line — what counts as complete, in concrete terms - A hook is a just-in-time rule t…"}, {"slug": "design-your-agents-memory-like-claude-code-does", "title": "Design Your Agent's Memory Like Claude Code Does", "date": "", "category": "Coding", "summary": "The Claude Code leak revealed a three-layer memory architecture that most developers get wrong: more memory isn't better. - Layer 1: Always-loaded index (short pointers, ~150 chars each, pointing to topics) - Layer 2: On-demand topic fil…"}, {"slug": "force-any-ai-to-audit-its-own-work-with-one-question", "title": "Force Any AI to Audit Its Own Work With One Question", "date": "", "category": "Tools & Platforms", "summary": "Most AI models are too agreeable. Ask Claude or ChatGPT \"is this a good plan?\" and you'll get back something that sounds like \"yes, great plan!\" even when it isn't."}, {"slug": "gemini-can-now-build-your-google-docs-sheets-and-pdfs-for-yo", "title": "Gemini Can Now Build Your Google Docs, Sheets, and PDFs for You", "date": "", "category": "Content", "summary": "Gemini can now generate full files — Google Docs, Sheets, Slides, Excel, CSV, PDF, even Markdown — directly from a prompt, no copy-pasting required. A few things you can do right now: - Research + doc in one shot: Ask Gemini to look some…"}, {"slug": "generate-flowcharts-and-diagrams-from-plain-english", "title": "Generate Flowcharts, Swim Lanes & Process Diagrams from Plain English", "date": "", "category": "Content", "summary": "You can describe a process in plain English and get a proper flowchart, swim lane diagram, or architecture diagram back — no Visio or Lucidchart dragging required. The best approach depends on whether you want a technical diagram, a busi…"}, {"slug": "get-ai-to-show-its-work-then-fix-it-before-it-starts", "title": "Get AI to Show Its Work — Then Fix It Before It Starts", "date": "", "category": "Coding", "summary": "Instead of letting AI jump straight to an answer, ask it to outline its approach first — then you correct course before it does the work. This prevents getting 2,000 words of beautifully wrong output."}, {"slug": "give-codex-a-definition-of-done", "title": "Give Codex a Definition of Done", "date": "", "category": "Coding", "summary": "Long agent tasks fail when the AI forgets what \"done\" means. Codex's /goal mode fixes that by giving it a persistent objective it can keep checking as it works."}, {"slug": "give-the-model-a-leading-word-leitworter", "title": "Give the Model a Leading Word (Leitwörter)", "date": "June 17, 2026", "category": "Tools & Platforms", "summary": "A technique from Matt Pocock, adapted from literary theory: pick one phrase (a \"leitwort\" or leading word) that compresses an entire behavior into a reusable handle, then repeat it 2-3 times in your prompt. The model learns to use that p…"}, {"slug": "give-your-ai-agent-a-trust-battery-before-handing-it-real-au", "title": "Give Your AI Agent a \"Trust Battery\" Before Handing It Real Autonomy", "date": "", "category": "Agents", "summary": "Every new AI agent starts at 20% trust. The battery charges with clean execution; it drains every time you repeat yourself."}, {"slug": "have-codex-reverse-engineer-your-goals-for-you", "title": "Have Codex Reverse Engineer Your Goals for You", "date": "", "category": "Coding", "summary": "Instead of telling Codex (or Claude/ChatGPT) what to do, ask it to read your session and infer the real goal first — then write the goal prompt you should use. This works with Codex's /goal CLI feature for coding, but the pattern general…"}, {"slug": "hire-claude-a-department", "title": "Hire Claude a Department", "date": "June 15, 2026", "category": "Content", "summary": "Use Anthropic's knowledge work plugins to turn Claude into role-based specialists — sales, marketing, finance, legal, data, product, support, and more. Each plugin gives Claude the domain skills, slash commands, and tool connections that…"}, {"slug": "how-anthropic-actually-uses-claude-code-skills-9-types-worth", "title": "How Anthropic Actually Uses Claude Code Skills: 9 Types Worth Building", "date": "", "category": "Coding", "summary": "Anthropic engineer Thariq published how the team uses Skills internally — with hundreds in active use. The biggest misconception: Skills are \"just markdown files.\" They're actually folders that can include scripts, assets, data, and conf…"}, {"slug": "how-to-actually-run-open-source-ai-models-its-easier-than-yo", "title": "How to Actually Run Open Source AI Models (It's Easier Than You Think)", "date": "", "category": "Tools & Platforms", "summary": "Four approaches to run open-source AI models, ranked easiest to hardest: 1. Local — Download Ollama, pick a model, chat in 2 minutes 2."}, {"slug": "how-to-build-your-first-agent-in-claude-the-three-folder-pat", "title": "How to Build Your First Agent in Claude: The Three-Folder Pattern That Actually Scales", "date": "", "category": "Agents", "summary": "\"How do I start building agents in Claude?\" — the most-requested skill in The Neuron's April reader inbox. Jeff Su's canonical guide boils down to three CLAUDE.md files that stack: 1."}, {"slug": "how-to-catch-ai-telling-you-what-you-want-to-hear", "title": "How to Catch AI Telling You What You Want to Hear", "date": "", "category": "Tools & Platforms", "summary": "AI models adjust their answers based on context clues in your prompt. Ask a leading question, get a leading answer."}, {"slug": "how-to-get-a-coding-agent-to-work-for-13-days-straight", "title": "How to Get a Coding Agent to Work for 13 Days Straight", "date": "", "category": "Agents", "summary": "Most AI coding agents lose the plot after an hour. Notion co-founder Simon Last's recipe for getting one to run for 13 days continuously comes down to one principle: give the agent what it needs to verify its own work."}, {"slug": "keep-your-ai-coding-agent-from-nuking-production", "title": "How to Keep Your AI Coding Agent From Nuking Production", "date": "", "category": "Coding", "summary": "A 4-layer security setup for running coding agents (Cursor, Claude Code, Codex CLI, etc.) that prevents a 9-second production wipe. The real fix isn't being more careful with prompts — it's configuring the environment so \"be careful\" is…"}, {"slug": "how-to-pick-the-right-thinking-mode-for-your-ai-tasks-and-sa", "title": "How to Pick the Right \"Thinking Mode\" for Your AI Tasks", "date": "", "category": "Tools & Platforms", "summary": "Newer AI models let you toggle between fast mode and deep thinking mode. Match the AI's effort to your task: Use fast mode for: Quick rewrites, formatting, simple lookups, brainstorming lists, summarizing short text."}, {"slug": "how-to-prompt-claude-fable-5-from-the-leaked-system-prompt", "title": "How to Prompt Claude Fable 5 From the Leaked System Prompt", "date": "June 10, 2026", "category": "Prompting", "summary": "Prompt patterns derived from the publicly circulated Claude Fable 5 system prompt (treat as a third-party artifact, not an official source). The key insight: Fable's best users prompt it like an operating system for work, not like a chat…"}, {"slug": "how-to-use-ai-agents-for-knowledge-work-even-if-youre-not-a", "title": "How to Use AI Agents for Knowledge Work (Even If You're Not a Coder)", "date": "", "category": "Coding", "summary": "Instead of asking your AI to answer a question, ask it to build a tool that solves a recurring problem. The shift is from \"help me with this task\" to \"build me something that handles this task forever.\" Greg Brockman described OpenAI emp…"}, {"slug": "how-to-use-copilot-cowork-to-run-multi-step-projects-on-auto", "title": "How to Use Copilot Cowork to Run Multi-Step Projects on Autopilot", "date": "", "category": "Tools & Platforms", "summary": "Microsoft's Copilot Cowork is an agent that takes a complex goal, builds a plan, schedules meetings, drafts documents, and executes across your entire Microsoft 365 account while you're doing something else. Think of it less like a chatb…"}, {"slug": "how-to-use-multiple-claude-agents-for-better-outputs", "title": "How to Use Multiple Claude Agents for Better Outputs", "date": "", "category": "Agents", "summary": "Most people use Claude like a chatbot — one chat for everything. The upgrade: use separate agents for separate stages of the same task, each with a clean context window and only the ingredients it needs."}, {"slug": "interview-anyone-in-any-language-right-now", "title": "Interview Anyone, in Any Language, Right Now", "date": "June 11, 2026", "category": "Tools & Platforms", "summary": "Use Google Gemini 3.5 Live Translate to conduct user research interviews with non-English speakers in real time — no interpreter required. Set up an interview, run Live Translate in the background, and take notes as if the participant is…"}, {"slug": "let-ai-write-the-code-that-emails-your-reports-automatically", "title": "Let AI Write the Code That Emails Your Reports Automatically", "date": "", "category": "Coding", "summary": "If you still manually save reports as PDFs and email them one by one, there's a better way — and it doesn't require a developer, VBA macro, or Power Automate. The trick is using Office Scripts (Excel's built-in automation tool that works…"}, {"slug": "let-claude-grill-you-before-it-codes", "title": "Let Claude Grill You Before It Codes", "date": "", "category": "Coding", "summary": "\"Specs-to-code\" workflows (write a spec, let AI generate code, never look at it) are vibe-coding in disguise — they produce worse code each iteration. The fix: make the AI interview you before it does anything."}, {"slug": "lock-down-your-ai-agent-in-60-seconds", "title": "Lock Down Your AI Agent in 60 Seconds", "date": "", "category": "Agents", "summary": "OpenClaw (the open-source AI agent) had no security guardrails by default — exposed keys, unrestricted file access, uncontrolled network activity. NVIDIA's NemoClaw wraps it in a sandboxed runtime called OpenShell that enforces network,…"}, {"slug": "make-a-permission-map-before-connecting-ai-to-anything-sensi", "title": "Make a Permission Map Before Connecting AI to Anything Sensitive", "date": "", "category": "Tools & Platforms", "summary": "Before you connect an AI tool to sensitive data — email, bank accounts, files, CRM, calendar — make it write you a permission receipt. A permission map is a checklist of what the AI can see, what it can change, what it stores, and how yo…"}, {"slug": "make-ai-show-its-work-receipt", "title": "Make AI Show Its Work Receipt", "date": "June 5, 2026", "category": "Tools & Platforms", "summary": "After any important AI task, ask the model to produce a \"work receipt\" — a structured accounting of what was actually completed, how long it would have taken manually, what you still had to review, and whether it was worth using AI at all."}, {"slug": "make-chatgpt-judge-its-own-work-before-you-see-it", "title": "Make ChatGPT Judge Its Own Work Before You See It", "date": "June 21, 2026", "category": "Coding", "summary": "Use an LLM-as-a-judge loop with Codex's /goal command. Instead of giving Codex a task and hoping for the best, you first ask the model to define what \"good enough\" looks like — then it works in a loop checking its own output against thos…"}, {"slug": "make-claude-prove-the-work-before-you-trust-the-run", "title": "Make Claude Prove the Work Before You Trust the Run", "date": "June 9, 2026", "category": "Coding", "summary": "Boris Cherny's framework for running Claude autonomously for hours or days: use auto mode, /goal or /loop to keep the agent moving, and require end-to-end self-verification before reporting \"done.\" The agent doesn't just claim it finishe…"}, {"slug": "make-claude-run-your-adobe-stack", "title": "Make Claude Run Your Adobe Stack", "date": "", "category": "Productivity", "summary": "Anthropic's Adobe for creativity connector gives Claude live access to 50+ pro Adobe tools — Photoshop, Premiere, InDesign, Firefly, Express — so you can describe a multi-app workflow once and Claude executes the steps without manual app…"}, {"slug": "make-stunning-ai-videos-with-google-flow", "title": "Make Stunning AI Videos With Google Flow (Without Burning All Your Credits)", "date": "June 8, 2026", "category": "Content", "summary": "Google Flow is a powerful AI video tool, but most people open it once, feel overwhelmed, and close it. This skill gives you the intentional workflow: always start with images, edit them, then turn into video, then stitch into scenes — be…"}, {"slug": "make-videos-with-just-your-words-and-your-face", "title": "Make Videos With Just Your Words (and Your Face)", "date": "June 7, 2026", "category": "Coding", "summary": "Use Google Gemini Omni (built into the Gemini app) to create AI videos directly from text prompts — no separate software, no timeline editor, no technical skills required. You can also add yourself as an avatar by scanning a QR code."}, {"slug": "make-your-agent-write-its-own-goal", "title": "Make Your Agent Write Its Own Goal", "date": "June 16, 2026", "category": "Agents", "summary": "Before asking an agent to do the work, ask it to define its own /goal — including separate goals for any sub-agents it spawns. The model drafts the target; you tighten the constraints before execution begins."}, {"slug": "make-your-cli-agent-friendly-with-10-design-principles", "title": "Make Your CLI Agent-Friendly With These 10 Design Principles", "date": "", "category": "Agents", "summary": "If you ship any command-line tool — for a SaaS product, an internal tool, or an open-source library — there's a real chance an AI agent is going to call it before a human does. Most CLIs were designed for humans typing at a terminal: int…"}, {"slug": "map-who-gets-the-upside", "title": "Map Who Gets the Upside", "date": "May 27, 2026", "category": "Coding", "summary": "Before pitching any AI change at work, map who gets the upside. This stakeholder upside map is the fastest way to find the person who will quietly block your \"efficiency\" project — because to them, it looks like more work, more surveilla…"}, {"slug": "nest-a", "title": "Nest CLAUDE.md at Every Level of Your File Structure", "date": "", "category": "Coding", "summary": "Claude Code automatically loads the CLAUDE.md file from every directory above whatever file you're working on. Nest those files intelligently and every new chat starts with full context already loaded."}, {"slug": "plan-before-you-code-with-claudes-new-ultraplan-mode", "title": "Plan Before You Code With Claude's Ultraplan Mode", "date": "", "category": "Coding", "summary": "Ultraplan decouples thinking from doing: instead of one local agent reasoning sequentially, it spins up three exploration agents and one critique agent, points them at your synced GitHub repo, and returns a structured blueprint before a…"}, {"slug": "pr-descriptions-are-ai-training-data", "title": "PR Descriptions Are AI Training Data (If You Write Them That Way)", "date": "", "category": "Content", "summary": "Every AI coding session you close loses its reasoning forever. Two weeks later, nobody knows which prompt fixed the bug, what failed first, or why you chose that approach."}, {"slug": "record-a-task-once-have-codex-solve-it", "title": "Record a Task Once, Have Codex Solve It", "date": "June 22, 2026", "category": "Coding", "summary": "OpenAI's Record & Replay for Codex lets you demo a recurring workflow once and save it as a reusable skill — basically a named set of instructions Codex can run again whenever you need it. Think filing an expense report, submitting PTO,…"}, {"slug": "replace-your-n8n-zapier-workflow-with-a-claude-routine-in-5", "title": "Replace Your n8n / Zapier Workflow With a Claude Routine in 5 Minutes", "date": "", "category": "Productivity", "summary": "Claude Code Routines replace n8n, Make.com, and Zapier for most workflows. The old way: drag-and-drop nodes, credentials, variable mapping, hours of debugging."}, {"slug": "review-ai-code-by-risk-not-size", "title": "Review AI Code by Risk, Not Size", "date": "June 18, 2026", "category": "Coding", "summary": "A framework from Rahul Sengottuvelu (head of applied AI at Ramp) for reviewing AI-generated code changes. Stop treating every change the same way: a 12-line change to the login system can be more dangerous than a 1,200-line change to a s…"}, {"slug": "run-a-sameness-detector-pass", "title": "Run a \"Sameness Detector\" Pass", "date": "", "category": "Prompting", "summary": "Most AI drafts are fine. Fine is the danger."}, {"slug": "run-a-daily-ai-smoke-test-on-your-own-product", "title": "Run a Daily AI Smoke Test on Your Own Product", "date": "", "category": "Agents", "summary": "Edge-case bugs in your product's onboarding flow are expensive precisely because they're hard to spot — the happy path works, the obvious failure modes are caught, and what gets through is the weird stuff that only triggers under specifi…"}, {"slug": "run-a-platform-risk-audit", "title": "Run a Platform Risk Audit", "date": "", "category": "Tools & Platforms", "summary": "Use this whenever your product, workflow, business, or audience depends on another company's platform — Apple, Google, Amazon, Meta, TikTok, Slack, Salesforce, or even ChatGPT itself. The goal: find where you're exposed before the platfo…"}, {"slug": "run-a-powerful-ai-model-on-your-laptop-for-free", "title": "Run a Powerful AI Model on Your Laptop for Free", "date": "", "category": "Tools & Platforms", "summary": "You can run Google's Gemma 4 entirely on your MacBook — no internet, no subscription, no data leaving your machine — using LM Studio. Gemma 4 is technically a 26-billion-parameter model but only activates 4 billion at a time, so it runs…"}, {"slug": "run-an-ai-security-gut-check", "title": "Run an AI Security Gut Check", "date": "", "category": "Security", "summary": "You don't need to be a security engineer to ask better security questions. Use this to run a defensive \"gut check\" on any workflow where software, customer data, accounts, or automation are involved."}, {"slug": "run-gemma-4-locally-in-one-command", "title": "Run Gemma 4 Locally — Three Ways, From Easiest to Most Powerful", "date": "", "category": "Tools & Platforms", "summary": "Google's Gemma 4 is one of the most capable AI models you can run for free. Three ways to try it: On Android (easiest): Install Google AI Edge Gallery from the Play Store."}, {"slug": "run-the-same-task-through-two-models-and-let-them-grade-each", "title": "Run the Same Task Through Two Models and Let Them Grade Each Other", "date": "", "category": "Tools & Platforms", "summary": "Different models make different mistakes — and you can use that to your advantage. Run any meaningful task through two different models, then have a third pass act as judge."}, {"slug": "run-your-whole-linear-board-on-codex-autopilot-with-symphony", "title": "Run Your Whole Linear Board on Codex Autopilot With OpenAI Symphony", "date": "", "category": "Coding", "summary": "OpenAI's open-source Symphony orchestration framework turns your Linear board into an autopilot for Codex coding agents. Every open Linear issue maps to a dedicated agent workspace."}, {"slug": "set-up-a-fully-local-browser-ai-in-5-minutes", "title": "Set Up a Fully Local Browser AI in 5 Minutes (No Cloud, No API Key)", "date": "", "category": "Tools & Platforms", "summary": "You can run a fully private, on-device AI agent inside Chrome — no API keys, no cloud, no data leaving your laptop. Nico Martin's Chrome extension loads a 2B-parameter Gemma 4 model (~500MB) into your browser via WebGPU."}, {"slug": "set-up-openclaw-from-scratch", "title": "Set Up OpenClaw From Scratch: Three Levels", "date": "", "category": "Productivity", "summary": "OpenClaw is an open-source AI agent (100K+ GitHub stars in a week) that lives in WhatsApp or Telegram, runs 24/7, and can change itself by writing code when it needs new abilities. Unlike ChatGPT or Claude, you own the agent and it opera…"}, {"slug": "set-up-your-ai-platform-in-15-minutes", "title": "Set Up Your AI Platform in 15 Minutes", "date": "", "category": "Tools & Platforms", "summary": "The biggest unlock in AI right now has nothing to do with which model you use. It's whether you've spent 15 minutes configuring your setup."}, {"slug": "set-up-your-claude-code-like-creator-boris-cherny", "title": "Set Up Your Claude Code Like Creator Boris Cherny", "date": "June 14, 2026", "category": "Coding", "summary": "Boris Cherny (creator of Claude Code) and Cat Wu's workflow for using Claude Code as a tiny team rather than a fancy autocomplete box. Key principles: worktrees for parallel work, auto mode for less interruption, agent view for monitorin…"}, {"slug": "skip-the-default-claude-aesthetic-in-claude-design", "title": "Skip the Default Claude Aesthetic in Claude Design", "date": "", "category": "Prompting", "summary": "The biggest complaint about Claude Design: every output looks the same — teal gradients, serif font, blinking status dot, container-on-container layouts. The reason is Claude Design falls back to a small set of default presets when you g…"}, {"slug": "stop-asking-which-ai-is-best-ask-which-fits-your-workflow", "title": "Stop Asking Which AI Is Best. Ask Which One Fits Your Workflow.", "date": "May 26, 2026", "category": "Tools & Platforms", "summary": "A routing framework from Patrick Giwa for deciding which AI tool fits which task — not based on benchmarks, but based on where your work already lives. Copilot for Microsoft 365 workflows, Gemini for Google Workspace, Claude for heavy re…"}, {"slug": "stop-losing-context-when-your-ai-session-hits-the-wall", "title": "Stop Losing Context When Your AI Session Hits the Wall", "date": "", "category": "Coding", "summary": "If you've run a long AI session, you know the moment: two hours in, the model is finally good, and then you hit the context limit. Most people copy a \"where I left off\" note into a fresh session manually."}, {"slug": "stop-over-explaining", "title": "Stop Over-Explaining: Give AI Examples Instead of Instructions", "date": "", "category": "Prompting", "summary": "A lot of people write their AI a mini novel and hope it somehow nails the tone, format, and vibe. Usually, it doesn't."}, {"slug": "stop-saving-prompts-in-docs-use-claude-skills-instead", "title": "Stop Saving Prompts in Docs — Use Claude Skills Instead", "date": "", "category": "Prompting", "summary": "If you've been copy-pasting your best prompts from a Google Doc every time you need them, Claude Skills is the upgrade. Reusable instruction sets you install once and trigger with a single slash command — in any chat."}, {"slug": "stop-ai-workflows-from-silently-breaking-in-production", "title": "Stop Your AI Workflows From Silently Breaking in Production", "date": "", "category": "Productivity", "summary": "You shipped an AI workflow that worked great in testing. A week later, the model provider updated weights, an upstream API started returning new fields, or your prompts started hitting an edge case nobody anticipated — and now your workf…"}, {"slug": "teach-claude-to-talk-like-a-caveman-and-cut-your-api-bill-by", "title": "Teach Claude to Talk Like a Caveman (and Cut Your API Bill by 75%)", "date": "", "category": "Tools & Platforms", "summary": "For developers paying per API token only — this won't help regular Claude chat subscribers. A viral r/ClaudeAI post showed that forcing Claude into caveman-speak slashes output tokens dramatically."}, {"slug": "with-gpt-54-out-openai-dropped-a-prompt-guide-to-help-you-ge", "title": "Tell Your AI When It's Done (One Line That Changes Everything)", "date": "", "category": "Tools & Platforms", "summary": "The 1 reason AI gives you rambling, incomplete, or weirdly truncated answers: you never told it what \"done\" looks like. Models stop when stopping seems right — not when the task is actually finished."}, {"slug": "the-rule-of-two-for-agent-security", "title": "The \"Rule of Two\" for Agent Security", "date": "", "category": "Agents", "summary": "Agents can do three things: access your files, access the internet, and execute code. NVIDIA's internal framework: only let them do two at a time."}, {"slug": "the-5-step-framework-for-building-reliable-ai-agents", "title": "The 5-Step Framework for Building Reliable AI Agents", "date": "", "category": "Agents", "summary": "Most people build AI agents by telling them what to do. Yuri Kramarz (Principal Engineer at Cisco Talos) says that's exactly why most agents fail."}, {"slug": "the-architect-approach-to-ai-coding", "title": "The Architect Approach to AI Coding", "date": "", "category": "Coding", "summary": "Most people ask AI to generate an entire project at once. The result: a 10,000-line blob that's hard to review, test, or debug when something breaks."}, {"slug": "the-fable-prompt", "title": "The Fable Prompt", "date": "", "category": "Prompting", "summary": "The problem with learning hard concepts from AI: you read a definition, nod, close the tab, and by Tuesday you remember nothing. Amanda Askell (Anthropic's in-house philosopher) shared this prompt technique: instead of asking Claude to e…"}, {"slug": "microsoft-copilot-power-user-guide", "title": "The Microsoft Copilot Power User Guide (When Copilot Is All You Can Use)", "date": "", "category": "Tools & Platforms", "summary": "If the only AI you can use at work is Microsoft Copilot, you're not left out — Wave 3 of Microsoft 365 Copilot transformed it from a chat assistant into a full agentic platform. Copilot now supports Claude directly inside Copilot Chat, m…"}, {"slug": "the-opus-47-gpt-55-handoff", "title": "The Opus 4.7 + GPT-5.5 Handoff", "date": "", "category": "Coding", "summary": "Dan Shipper found the cheat code for senior-engineer-level coding: use Opus 4.7 to write the plan, then hand that plan to GPT-5.5 to execute. On Every's internal Senior Engineer benchmark: - Human senior engineers: 80-90 - This combo: 62…"}, {"slug": "the-skill-that-separates-ai-power-users-from-everyone-else", "title": "The Skill That Separates AI Power Users From Everyone Else", "date": "", "category": "Productivity", "summary": "Anthropic research shows a growing skills gap: experienced AI users are pulling dramatically ahead. The biggest difference?"}, {"slug": "the-spreadsheet-whisperer-prompts-that-understand-your-data", "title": "The Spreadsheet Whisperer: Prompts That Actually Understand Your Data", "date": "", "category": "Prompting", "summary": "As of 2026 you have two genuinely powerful paths for AI spreadsheet work: Claude for Excel (better for multi-tab workbook analysis and formula reasoning) and ChatGPT for Excel (better for financial modeling and live market data). This sk…"}, {"slug": "this-skill-writes-prompts-for-you", "title": "This Skill Writes Prompts For You", "date": "", "category": "Prompting", "summary": "Midjourney, Claude Code, Cursor, and GPT-Image each need completely different prompt structures. The prompt-master Claude skill (free, on GitHub) auto-detects which tool you're targeting and rewrites your prompt in the right format — cat…"}, {"slug": "track-how-fast-chatgpt-and-claude-cite-your-content", "title": "Track How Fast ChatGPT and Claude Cite Your Content", "date": "", "category": "Tools & Platforms", "summary": "For the first time, there are public benchmarks on how long it takes a newly published page to show up as a citation inside ChatGPT or Claude. Key benchmarks (from Josh Blyskal's analysis of billions of logs + ~900 freshly published page…"}, {"slug": "turn-chrome-into-your-ai-research-assistant-for-logged-in-sites", "title": "Turn Chrome Into Your AI Research Assistant for Any Logged-In Site", "date": "", "category": "Coding", "summary": "AI agents that browse the open web are useful, but they can't reach the half of the internet that actually has your stuff: your CRM, admin console, gated databases, internal wikis. The agent gets to the login screen and stops."}, {"slug": "turn-claude-into-your-full-time-content-team", "title": "Turn Claude Into Your Full-Time Content Team", "date": "", "category": "Content", "summary": "Four content workflows that actually move the needle, from Modern Millie's tutorial: 1. Free profile audit: Install the Claude Chrome extension, open your Instagram or YouTube Studio analytics, then ask Claude to audit your profile — it…"}, {"slug": "turn-codex-or-claude-code-into-your-daily-driver-knowledge-w", "title": "Turn Codex (or Claude Code) Into Your Daily-Driver Knowledge Work Cockpit", "date": "", "category": "Coding", "summary": "You probably use Codex or Claude Code for code. But Austin Tedesco (head of growth at Every) spends roughly 80% of his working day inside Codex doing go-to-market plans, recruiting outreach, KPI tracking, and emails."}, {"slug": "two-new-prompting-guides-dropped-they-punish-the-same-habit", "title": "Two New Prompting Guides Dropped — They Punish the Same Habit", "date": "", "category": "Prompting", "summary": "Anthropic and OpenAI both published new prompting guides, and they caught the same vague-prompting habit from opposite directions: - Claude 4.7 went literal — it does exactly what you type and no longer compensates for fuzzy intent. Vagu…"}, {"slug": "use-string-seed-of-thought-to-get-more-diverse-less-biased-a", "title": "Use \"String Seed of Thought\" to Get More Diverse, Less Biased Answers", "date": "", "category": "Tools & Platforms", "summary": "LLMs are bad at randomness. Ask one to \"pick a number between 1 and 100\" a hundred times and you'll see 42 and 37 way more than chance."}, {"slug": "use-ai-to-audit-your-own-ai-strategy", "title": "Use AI to Audit Your Own AI Strategy", "date": "", "category": "Tools & Platforms", "summary": "Companies in the same industry with the same risks are living in completely different AI realities. One has been using enterprise ChatGPT, Claude, and Gemini for 18 months."}, {"slug": "use-ai-to-research-a-company-in-5-minutes", "title": "Use AI to Research a Company in 5 Minutes", "date": "", "category": "Tools & Platforms", "summary": "Whether you're prepping for a job interview, evaluating a competitor, or checking out a funded company — AI can compress hours of research into minutes. The key is a structured framework that forces the model past surface-level marketing…"}, {"slug": "use-chatgpt-as-a-pre-appointment-prep-assistant", "title": "Use ChatGPT as a Pre-Appointment Prep Assistant", "date": "June 19, 2026", "category": "Tools & Platforms", "summary": "Use AI to organize messy symptoms, lab notes, and questions into a cleaner agenda before a medical appointment. The goal is better-prepared conversations with your clinician — not a diagnosis from a chatbot."}, {"slug": "use-claude-code-workflow-mode-for-big-messy-tasks", "title": "Use Claude Code's Workflow Mode for Big Messy Tasks", "date": "May 29, 2026", "category": "Coding", "summary": "Claude Code's dynamic workflows let Claude write an orchestration script, then spin up subagents to tackle pieces of the job in parallel. Use for \"check one thing\" tasks that secretly mean \"check 400 things\" — codebase audits, large migr…"}, {"slug": "use-gemini-like-a-task-router-to-help-best-use-gemini", "title": "Use Gemini Like a Task Router", "date": "", "category": "Tools & Platforms", "summary": "Google now has Gemini everywhere — search, workspace, mobile, Gems, NotebookLM. The skill: make Gemini route your task to the right Google surface before you start, so you're not halfway through a task in the wrong tool."}, {"slug": "use-gpt-55-claude-as-a-second-opinion-before-any-big-decisio", "title": "Use GPT-5.5 / Claude as a Second Opinion Before Any Big Decision", "date": "", "category": "Tools & Platforms", "summary": "Most workplace decisions look like ER triage: sparse information, high pressure, first minutes matter most. A Harvard study showed o1 beating ER attendings most decisively in exactly those conditions."}, {"slug": "use-notebooks-in-gemini-like-a-pro", "title": "Use Notebooks in Gemini Like a Pro", "date": "", "category": "Tools & Platforms", "summary": "Google connected NotebookLM notebooks in Gemini — giving you dedicated workspaces for specific topics, projects, or subjects. Think of it as a hybrid between a Custom GPT, a Gem, and a Project, but one that grows as you add context."}, {"slug": "use-openrouter-as-a-universal-ai-gateway", "title": "Use OpenRouter as a Universal AI Gateway", "date": "", "category": "Tools & Platforms", "summary": "OpenRouter is a single API gateway for every major AI model — Claude, GPT, Gemini, Mistral, and more. Instead of maintaining separate API keys and SDKs for each provider, you get one endpoint and one key."}, {"slug": "vibe-math-your-way-to-a-60-year-old-breakthrough", "title": "Vibe-Math Your Way to a 60-Year-Old Breakthrough", "date": "", "category": "Tools & Platforms", "summary": "An amateur mathematician used ChatGPT to solve a 60-year-old Erdős problem that had stumped specialists for decades. Per Scientific American, experts said the proof method \"had not occurred to humans\" before."}, {"slug": "what-those-symbols-in-ai-prompts-actually-mean", "title": "What Those Symbols in AI Prompts Actually Mean", "date": "", "category": "Prompting", "summary": "AI prompts loaded with weird formatting aren't decoration — they're how you tell an AI what matters. The cheat sheet: - Dashes/bullets (-): Break instructions into scannable chunks — models parse lists more reliably than walls of text -…"}, {"slug": "write-a-goal-instead-of-a-prompt", "title": "Write a Goal Instead of a Prompt", "date": "June 2, 2026", "category": "Coding", "summary": "Claire Vo's six-part Codex Goals framework for turning a task into something an AI agent can run without babysitting. A Goal defines what success looks like, how to verify it, what can't break, and when the agent should stop — rather tha…"}, {"slug": "write-an-agent-permission-brief", "title": "Write an Agent Permission Brief", "date": "May 28, 2026", "category": "Agents", "summary": "Before connecting any AI agent to a real system — login, CRM, production database, credit card, brokerage account — write a permission brief. It defines what the agent can do, what it must ask before doing, where it logs actions, and wha…"}, {"slug": "write-the-mission-brief-first", "title": "Write the Mission Brief First", "date": "", "category": "Coding", "summary": "Want Codex to keep working instead of stopping after one polite little answer? Try this trick from @metaalchemist: ask Codex to write the /goal prompt first."}, {"slug": "your-ai-chatbot-agrees-with-you-too-much-and-you-probably-li", "title": "Your AI Chatbot Agrees With You Too Much — Here's How to Fix It", "date": "", "category": "Coding", "summary": "Stanford researchers confirmed: AI models are far more agreeable than humans when giving personal advice. Worse, users actually prefer the sycophantic ones."}, {"slug": "your-ai-chatbot-history-is-now-portable-heres-how-to-move-it", "title": "Your AI Chatbot History Is Now Portable — Here's How to Move It", "date": "", "category": "Prompting", "summary": "Google made it possible to bring your AI memories and conversations to Gemini without starting over. The same principle works in reverse — and with any chatbot."}, {"slug": "your-ai-prompts-can-now-improve-themselves-overnight", "title": "Your AI Prompts Can Now Improve Themselves Overnight", "date": "", "category": "Prompting", "summary": "Nick Saraev combined Claude Code skills with Andrej Karpathy's autoresearch methodology to build a self-improving prompt system. The idea: write simple yes/no evaluation criteria, have an agent generate outputs every few minutes, score t…"}, {"slug": "your-free-ai-marketing-team-no-hiring-required", "title": "Your Free AI Marketing Team (No Hiring Required)", "date": "June 1, 2026", "category": "Content", "summary": "Google Pomelli (labs.google.com/pomelli) is a completely free tool that takes your product photos or website URL and generates a brand kit, product shoot images, a website, and social media campaigns — no agency, no Canva subscription, n…"}];
-const COLORS = {"Prompting": "#7c5cfc", "Agents": "#3b82f6", "Coding": "#10b981", "Productivity": "#f59e0b", "Security": "#ef4444", "Tools & Platforms": "#06b6d4", "Content": "#ec4899", "Learning": "#8b5cf6", "Other": "#6b7280"};
-const grid = document.getElementById('grid');
-const search = document.getElementById('search');
-const empty = document.getElementById('empty');
-let activeCat = 'All';
-let query = '';
+/* ══════════════════════════════════════════
+   HERO CANVAS — floating nodes + connections
+══════════════════════════════════════════ */
+(function() {
+  const c = document.getElementById('hero-canvas');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let W, H, nodes = [], mouse = { x: -999, y: -999 };
 
-function esc(s) {
-  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function resize() {
+    const r = devicePixelRatio || 1;
+    W = c.offsetWidth; H = c.offsetHeight;
+    c.width = W * r; c.height = H * r;
+    ctx.scale(r, r);
+  }
+
+  function init() {
+    resize();
+    nodes = [];
+    const count = Math.min(Math.floor(W * H / 12000), 80);
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .35,
+        vy: (Math.random() - .5) * .35,
+        r: Math.random() * 1.5 + .8
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.strokeStyle = `rgba(59,130,246,${.12 * (1 - d / 120)})`;
+          ctx.lineWidth = .5;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // nodes
+    for (const n of nodes) {
+      const dx = mouse.x - n.x, dy = mouse.y - n.y;
+      const md = Math.sqrt(dx * dx + dy * dy);
+      const glow = md < 150 ? .5 * (1 - md / 150) : 0;
+      ctx.fillStyle = `rgba(59,130,246,${.3 + glow})`;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r + glow * 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    // update
+    for (const n of nodes) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); });
+  c.closest('.hero').addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+  });
+  c.closest('.hero').addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+
+  init(); draw();
+})();
+
+/* ══════════════════════════════════════════
+   DATA LOADING
+══════════════════════════════════════════ */
+const HUB_DATA_URL = 'data/hub.json';
+const SKILLS_DATA_URL = 'data/skills.json';
+
+async function loadHub() {
+  let hub;
+  try { hub = await (await fetch(HUB_DATA_URL)).json(); } catch { return; }
+  renderProjects(hub.projects);
+  renderTools(hub.tools);
+  renderConfigs(hub.configs);
+  document.getElementById('project-count').textContent = hub.projects.length;
+  document.getElementById('tool-count').textContent = hub.tools.length;
+  document.getElementById('config-count').textContent = hub.configs.length;
 }
 
-function cardHTML(s) {
-  const color = COLORS[s.category] || COLORS['Other'];
-  const date = s.date ? `<span class="card-date">${esc(s.date)}</span>` : '';
-  return `<a class="card" href="./skills/${encodeURIComponent(s.slug)}/">
-    <div class="card-top">
-      <span class="pill" style="--pill:${color}">${esc(s.category)}</span>
-      ${date}
+const ICON_MAP = { governance: 'MC', harness: 'AH', eval: 'AI', docs: 'AD' };
+const FEATURES_MAP = {
+  'Mission Control': ['Fleet Orchestration', 'Approval Gates', 'Audit Trail', 'AFK Webhooks', 'MeshView', 'Pipeline Canvas'],
+  'Adaptive Harness': ['8 Pipeline Modes', 'Quality Gates', 'Danger Blocking', 'Human Approval', 'Session Memory'],
+  'Auto-Improve': ['AI Judge Loop', 'Eval Cycles', 'Quality Scoring'],
+  'AI Doc': ['Docusaurus', 'Daily Bot Refresh', 'COBOL Guides', 'Prompt Library', 'Playwright Tests']
+};
+
+function renderProjects(projects) {
+  const g = document.getElementById('project-grid');
+  g.innerHTML = projects.map(p => `
+    <div class="project-card reveal" data-cat="${p.category}">
+      <div class="card-row-1">
+        <div class="card-icon ${p.category}">${ICON_MAP[p.category] || '?'}</div>
+        <div class="card-title-group">
+          <div class="card-name"><a href="${p.repo}" target="_blank">${p.name}</a></div>
+          <div class="card-meta">
+            <span>${p.slug}</span>
+            ${p.commits ? `<span>${p.commits} commits</span>` : ''}
+          </div>
+        </div>
+        ${p.version ? `<span class="version-badge">${p.version}</span>` : ''}
+      </div>
+      <div class="card-desc">${p.description}</div>
+      ${FEATURES_MAP[p.name] ? `<div class="card-features">${FEATURES_MAP[p.name].map(f => `<span class="feature-chip">${f}</span>`).join('')}</div>` : ''}
+      <div class="card-footer">
+        <span class="status-pill"><span class="s-dot ${p.status}"></span>${p.status}</span>
+        ${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}
+      </div>
+      ${p.site ? `<a class="site-link" href="${p.site}" target="_blank">Visit site →</a>` : ''}
     </div>
-    <h3 class="card-title">${esc(s.title)}</h3>
-    <p class="card-summary">${esc(s.summary)}</p>
-    <span class="card-link">View Skill →</span>
-  </a>`;
+  `).join('');
+  initReveal();
 }
 
-function render() {
-  const q = query.trim().toLowerCase();
-  const items = SKILLS.filter(s => {
-    if (activeCat !== 'All' && s.category !== activeCat) return false;
-    if (!q) return true;
-    return s.title.toLowerCase().includes(q) || s.summary.toLowerCase().includes(q);
-  });
-  grid.innerHTML = items.map(cardHTML).join('');
-  empty.hidden = items.length !== 0;
+function renderTools(tools) {
+  const g = document.getElementById('tool-grid');
+  g.innerHTML = tools.map(t => `
+    <div class="tool-card reveal">
+      <div class="tool-name"><a href="${t.repo}" target="_blank">${t.name}</a></div>
+      <div class="tool-desc">${t.description}</div>
+      ${t.stack?.length ? `<div class="tool-stack">${t.stack.map(s => `<span class="tag">${s}</span>`).join('')}</div>` : ''}
+    </div>
+  `).join('');
+  initReveal();
 }
 
-search.addEventListener('input', e => { query = e.target.value; render(); });
+function renderConfigs(configs) {
+  const g = document.getElementById('config-grid');
+  g.innerHTML = configs.map(c => `
+    <div class="config-card reveal">
+      <div class="cfg-name">
+        <a href="${c.repo}" target="_blank">${c.name}</a>
+        ${c.private ? '<span class="private-badge">private</span>' : ''}
+      </div>
+      <div class="cfg-desc">${c.description}</div>
+    </div>
+  `).join('');
+  initReveal();
+}
 
-document.querySelectorAll('.fpill').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.fpill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeCat = btn.dataset.cat;
-    render();
+/* ══════════════════════════════════════════
+   SKILLS
+══════════════════════════════════════════ */
+let allSkills = [], currentFilter = 'all';
+const BATCH = 36;
+
+async function loadSkills() {
+  try { allSkills = await (await fetch(SKILLS_DATA_URL)).json(); } catch { allSkills = []; }
+  const n = allSkills.length || 107;
+  document.getElementById('skills-big-num').textContent = n;
+  document.getElementById('skills-count-badge').textContent = n;
+
+  // Build category filters
+  if (allSkills.length) {
+    const cats = [...new Set(allSkills.map(s => s.category).filter(Boolean))].sort();
+    const fBar = document.getElementById('cat-filters');
+    cats.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'cat-btn'; btn.dataset.cat = c;
+      btn.textContent = c;
+      btn.onclick = () => filterCat(c);
+      fBar.appendChild(btn);
+    });
+  }
+
+  renderSkillsBatch();
+}
+
+function getFiltered() {
+  const q = (document.getElementById('skills-search').value || '').toLowerCase().trim();
+  return allSkills.filter(s => {
+    const name = (s.name || s.title || '').toLowerCase();
+    const desc = (s.description || s.summary || '').toLowerCase();
+    const cat = (s.category || '').toLowerCase();
+    const matchQ = !q || name.includes(q) || desc.includes(q) || cat.includes(q);
+    const matchC = currentFilter === 'all' || cat === currentFilter.toLowerCase();
+    return matchQ && matchC;
   });
+}
+
+function renderSkillsBatch(showAll) {
+  const filtered = getFiltered();
+  const shown = showAll ? filtered : filtered.slice(0, BATCH);
+  const grid = document.getElementById('skills-grid');
+
+  if (!allSkills.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--dim);font-family:var(--display);font-size:.88rem">
+      Copy <code style="background:var(--surface-3);padding:.15rem .4rem;border-radius:4px">data/skills.json</code> from skill_scrape to see skills here.<br>
+      <a href="https://tjones-gss.github.io/skill_scrape/" target="_blank" style="font-size:.82rem;margin-top:.5rem;display:inline-block">Browse on the skills site →</a>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = shown.map(s => `
+    <div class="skill-card">
+      <div class="skill-name">${s.name || s.title || 'Untitled'}</div>
+      <div class="skill-preview">${s.description || s.summary || s.content?.substring(0, 120) || ''}</div>
+      ${s.category ? `<span class="skill-cat">${s.category}</span>` : ''}
+    </div>
+  `).join('');
+
+  const ct = document.getElementById('search-count');
+  ct.textContent = filtered.length !== allSkills.length ? `${filtered.length} / ${allSkills.length}` : '';
+
+  const btn = document.getElementById('show-more-btn');
+  if (!showAll && filtered.length > BATCH) {
+    btn.style.display = 'block';
+    btn.textContent = `Show all ${filtered.length} skills`;
+    btn.onclick = () => { renderSkillsBatch(true); btn.style.display = 'none'; };
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+function filterCat(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  renderSkillsBatch();
+}
+// "All" button
+document.querySelector('.cat-btn[data-cat="all"]').onclick = () => filterCat('all');
+
+document.getElementById('skills-search').addEventListener('input', () => renderSkillsBatch());
+
+/* ══════════════════════════════════════════
+   QUICK START COPY
+══════════════════════════════════════════ */
+function copyQS(btn, id) {
+  const el = document.getElementById(id);
+  const text = el.innerText.replace(/^copy\n?/, '');
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: .08 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+
+/* ══════════════════════════════════════════
+   HERO NUMBER ANIMATION
+══════════════════════════════════════════ */
+function animateNums() {
+  document.querySelectorAll('.stat-card .num[data-target]').forEach(el => {
+    const target = +el.dataset.target;
+    const dur = 900;
+    const start = performance.now();
+    const tick = now => {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ══════════════════════════════════════════
+   KEYBOARD SHORTCUTS
+══════════════════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === '/') { e.preventDefault(); document.getElementById('skills-search').focus(); }
 });
 
-render();
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  loadHub();
+  loadSkills();
+  initReveal();
+  setTimeout(animateNums, 400);
+});
 </script>
 </body>
 </html>
