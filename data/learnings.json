@@ -1,11 +1,134 @@
 {
   "meta": {
-    "generated": "2026-07-16T09:32:18",
-    "count": 20,
+    "generated": "2026-07-17T09:16:14",
+    "count": 21,
     "first": "2026-06-24",
-    "latest": "2026-07-16"
+    "latest": "2026-07-17"
   },
   "entries": [
+    {
+      "date": "2026-07-17",
+      "day": "Friday",
+      "title": "AI Dev Briefing — Thursday, July 17, 2026",
+      "summary": "Claude Code v2.1.212 — /fork Goes Background, WebSearch Limits, MCP Auto-Background",
+      "headlines": [
+        {
+          "title": "Claude Code v2.1.212 — /fork Goes Background, WebSearch Limits, MCP Auto-Background",
+          "note": "The old in session subagent behavior moves to /subtask .",
+          "tags": [
+            "claude-code",
+            "models",
+            "mcp",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Gemini 3.5 Pro — It's the Day. Still Zero Official Confirmation",
+          "note": "Google still has made zero official announcement — no model card, no pricing page, no API listing.",
+          "tags": [
+            "gemini",
+            "models",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "NotebookLM → Gemini Notebook — Rebrand + Code Execution",
+          "note": "Announced: July 16 17, 2026 Google renamed NotebookLM to Gemini Notebook , aligning it with the broader Gemini brand.",
+          "tags": [
+            "gemini",
+            "models",
+            "harness"
+          ]
+        },
+        {
+          "title": "DeepSeek V4 — July 24 Hard Migration Deadline (1 Week)",
+          "note": "The Anthropic format endpoint is useful if you route through Claude Code's model switching.",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Codex v2.110.0-beta.31 — API Key Redaction in Terminal Output",
+          "note": "Recent Codex updates (July window): Codex Remote GA — start/continue work on a connected Mac/Windows host from the ChatGPT mobile app.",
+          "tags": [
+            "codex",
+            "models",
+            "security",
+            "harness"
+          ]
+        },
+        {
+          "title": "Opus 5 \"Honeycomb\" — Leaks Intensify, Launch-Before-July-19 Theory",
+          "note": "No model card, no API reference, no changelog entry The theory: Anthropic needs a bridge model when Fable 5 moves to credits.",
+          "tags": [
+            "cursor",
+            "models",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "WAIC 2026 Opens — 300+ AI Product Debuts, 29-Nation Governance Agreement",
+          "note": "July 17 20, Shanghai The World Artificial Intelligence Conference opened today — the largest edition since 2018: 1,100+ companies , 3,000+ exhibits, 100,000+ sq meters of exhibition space 300+ global…",
+          "tags": [
+            "models",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Fable 5 — 2 Days Left of Included Access",
+          "note": "Deadline: July 19, 2026 The countdown continues: After July 19: All Fable 5 usage requires prepaid credits at $10/$50 per Mtok A 2M output token session = $100 Anthropic says restoration planned \"whe…",
+          "tags": [
+            "models",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "MCP Goes Stateless — 2026-07-28 Release Candidate Published",
+          "note": "Tier 1 SDKs expected to ship support within the 10 week window.",
+          "tags": [
+            "models",
+            "mcp",
+            "harness",
+            "tools"
+          ]
+        }
+      ],
+      "actions": [
+        "Update DeepSeek Model Names Before July 24 (1 WEEK)",
+        "Watch for Gemini 3.5 Pro Today",
+        "Fable 5 — 2 Days Left",
+        "Update Claude Code to v2.1.212",
+        "Review WebSearch Limit for Agent Workflows",
+        "Watch WAIC for Product Announcements (July 17-20)"
+      ],
+      "tags": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "gemini",
+        "harness",
+        "mcp",
+        "models",
+        "pricing",
+        "security",
+        "tools"
+      ],
+      "headline_count": 9,
+      "action_count": 6
+    },
     {
       "date": "2026-07-16",
       "day": "Thursday",
@@ -41,6 +164,7 @@
             "claude-code",
             "codex",
             "models",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -189,6 +313,7 @@
           "tags": [
             "gemini",
             "models",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -295,6 +420,7 @@
           "tags": [
             "models",
             "security",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -451,6 +577,7 @@
             "copilot",
             "models",
             "vscode",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -708,6 +835,7 @@
             "codex",
             "gemini",
             "models",
+            "pricing",
             "tools"
           ]
         },
@@ -907,7 +1035,8 @@
           "title": "Anthropic Signs $19B Data Center Lease with TeraWulf",
           "note": "20 year deal, 401 MW capacity in Kentucky Anthropic inked a 20 year, $19 billion AI data center lease with TeraWulf (formerly a Bitcoin miner) for 401 megawatts of AI computing capacity at TeraWulf's…",
           "tags": [
-            "models"
+            "models",
+            "pricing"
           ]
         },
         {
@@ -1083,7 +1212,8 @@
           "tags": [
             "claude-code",
             "models",
-            "security"
+            "security",
+            "pricing"
           ]
         }
       ],
@@ -1119,6 +1249,7 @@
           "note": "This isn't a new model — it's a new surface that orchestrates existing Claude models across 60+ curated scientific tools and connectors.",
           "tags": [
             "models",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -1176,6 +1307,7 @@
           "note": "Announced: July 2, 2026 Microsoft created a dedicated AI implementation unit — 6,000 employees, $2.5B budget — to help enterprise customers actually deploy AI.",
           "tags": [
             "models",
+            "pricing",
             "harness",
             "tools"
           ]
@@ -1733,6 +1865,7 @@
             "codex",
             "gemini",
             "models",
+            "pricing",
             "harness"
           ]
         },
@@ -1771,13 +1904,16 @@
             "codex",
             "models",
             "security",
+            "pricing",
             "tools"
           ]
         },
         {
           "title": "Kiro Pro Max ($100/mo) + iOS App — AWS Summit NYC",
           "note": "June 17, 2026 — AWS Amazon's spec driven IDE got a premium tier and a mobile app.",
-          "tags": []
+          "tags": [
+            "pricing"
+          ]
         },
         {
           "title": "Claude Coming to Apple Devices via Foundation Models Framework",
@@ -1791,6 +1927,7 @@
           "note": "June 27, 2026 Qualcomm is in early talks to acquire Tenstorrent for $8 10 billion.",
           "tags": [
             "models",
+            "pricing",
             "tools"
           ]
         }
@@ -1810,6 +1947,7 @@
         "harness",
         "mcp",
         "models",
+        "pricing",
         "security",
         "tools"
       ],
