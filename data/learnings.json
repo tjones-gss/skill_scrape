@@ -1,11 +1,136 @@
 {
   "meta": {
-    "generated": "2026-07-17T09:16:14",
-    "count": 21,
+    "generated": "2026-07-18T09:16:43",
+    "count": 22,
     "first": "2026-06-24",
-    "latest": "2026-07-17"
+    "latest": "2026-07-18"
   },
   "entries": [
+    {
+      "date": "2026-07-18",
+      "day": "Saturday",
+      "title": "AI Dev Briefing — Saturday, July 18, 2026",
+      "summary": "Kimi K3 — The Largest Open-Weight Model Ever, and It's Competitive with Fable 5",
+      "headlines": [
+        {
+          "title": "Kimi K3 — The Largest Open-Weight Model Ever, and It's Competitive with Fable 5",
+          "note": "The market reaction was violent: TSMC fell 7%, SoftBank fell 9%, Nvidia dipped 1.2%.",
+          "tags": [
+            "copilot",
+            "models",
+            "security",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "GhostCommit — PNG-Hidden Prompt Injection Steals Secrets from AI Coding Agents",
+          "note": "No one reviews image files in PRs — but AI coding agents read them and execute the instructions.",
+          "tags": [
+            "cursor",
+            "gemini",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Fable 5 — Final Day of Included Access (Tomorrow Is the Cliff)",
+          "note": "Deadline: July 19, 2026 — TOMORROW This is the last full working day with Fable 5 included in your plan: After tomorrow (July 19 at 11:59 PM PT): All Fable 5 usage requires prepaid credits at $10/$50…",
+          "tags": [
+            "models",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Gemini 3.5 Pro — July 17 Came and Went. Still Nothing",
+          "note": "WAIC opened in Shanghai as a potential announcement venue.",
+          "tags": [
+            "gemini",
+            "models",
+            "pricing",
+            "harness"
+          ]
+        },
+        {
+          "title": "WAIC 2026 Day 2 — Huawei Atlas 950, Xi Keynote, Agent Phone",
+          "note": "July 17 20, Shanghai WAIC Day 1 headlines: Xi Jinping delivered his first ever WAIC keynote — signals AI as top level state priority Huawei Atlas 950 — 8,192 chip AI supercomputer debuted.",
+          "tags": [
+            "models",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Anthropic Blog: Large-Scale Code Migrations with Claude Code",
+          "note": "100% of existing test suite passing before merge.",
+          "tags": [
+            "claude-code",
+            "harness"
+          ]
+        },
+        {
+          "title": "DeepSeek V4 — 6 Days to Hard Migration Deadline",
+          "note": "Deadline: July 24, 2026 Countdown: 6 days until deepseek chat and deepseek reasoner return 404/400 errors.",
+          "tags": [
+            "models",
+            "security",
+            "pricing",
+            "harness"
+          ]
+        },
+        {
+          "title": "Codex & Cursor — Incremental Updates",
+          "note": "Codex v2.110.0 beta.31 (July 17): Improved dangerous command detection with more forced rm forms and clearer rejection reasons.",
+          "tags": [
+            "cursor",
+            "codex",
+            "models",
+            "security",
+            "pricing",
+            "mcp"
+          ]
+        },
+        {
+          "title": "Agentic Framework Ecosystem — Q2 Was the Biggest Quarter Ever",
+          "note": "Google DeepMind + Anthropic frameworks declare model level filters a failed strategy — require OS level enforcement, ephemeral capabilities, network sandboxing.",
+          "tags": [
+            "gemini",
+            "models",
+            "security",
+            "mcp",
+            "harness"
+          ]
+        }
+      ],
+      "actions": [
+        "Fable 5 — LAST FULL DAY",
+        "GhostCommit Defense (NEW THREAT — Act Now)",
+        "Watch Kimi K3 Open Weights (July 27)",
+        "DeepSeek V4 — Migrate This Weekend (6 Days Left)",
+        "Read the Anthropic Code Migration Post",
+        "De-Prioritize Gemini 3.5 Pro"
+      ],
+      "tags": [
+        "claude-code",
+        "codex",
+        "copilot",
+        "cursor",
+        "gemini",
+        "harness",
+        "mcp",
+        "models",
+        "pricing",
+        "security",
+        "tools"
+      ],
+      "headline_count": 9,
+      "action_count": 6
+    },
     {
       "date": "2026-07-17",
       "day": "Friday",
