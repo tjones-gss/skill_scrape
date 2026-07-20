@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-07-20",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Interaction improvements",
+    "summary": "Cursor now responds with a plan before it begins, so you can jump in and redirect early. As it works, it updates its status so you can follow each step."
+  },
+  {
+    "date": "2026-07-20",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Multi-repo environment support",
+    "summary": "From Slack, Cursor can now start in a named multi-repo environment instead of a single default repository. If your frontend, backend, and shared code live in separate repos, Cursor reads your request and targets the environment that gives it access to all of them."
+  },
+  {
+    "date": "2026-07-20",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Cross-channel workflows",
+    "summary": "Cursor can now read from and send messages to other Slack channels and threads. During a task, it can pull context from elsewhere in the workspace and post updates back in the original thread or the relevant channel."
+  },
+  {
     "date": "2026-07-13",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
