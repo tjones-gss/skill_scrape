@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-07-23",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Optimization modes",
+    "summary": "Select Auto, then choose how the router optimizes:"
+  },
+  {
+    "date": "2026-07-23",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Admin controls",
+    "summary": "Admins can enable the router per team or group, restrict which optimization modes members can use, set the default mode, and allow or block underlying models."
+  },
+  {
+    "date": "2026-07-23",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "Improvements↓↑",
+    "summary": "Jul 17, 2026·Changelog"
+  },
+  {
     "date": "2026-07-20",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
