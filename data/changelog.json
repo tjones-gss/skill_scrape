@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-07-30",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Built for the bigger screen",
+    "summary": "The iPad layout is rebuilt around the extra space. Sidebar chats stay pinned so you can watch several agents run at once. Split screen keeps a review open next to a chat, and file diffs render in full."
+  },
+  {
+    "date": "2026-07-30",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#A full review surface",
+    "summary": "On iPhone and iPad, the review screen now covers the full PR: comments, checks, and approvals. Add or change reviewers, read comments, and prompt the agent to resolve them. The whole path from agent output to merged PR now travels with you."
+  },
+  {
+    "date": "2026-07-30",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Inbox",
+    "summary": "An Inbox helps you and your agents stay organized. See what's in progress, what needs your attention, and which PRs are in review."
+  },
+  {
     "date": "2026-07-23",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
