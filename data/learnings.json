@@ -1,11 +1,149 @@
 {
   "meta": {
-    "generated": "2026-07-18T09:16:43",
-    "count": 22,
+    "generated": "2026-08-11T07:53:51",
+    "count": 23,
     "first": "2026-06-24",
-    "latest": "2026-07-18"
+    "latest": "2026-08-11"
   },
   "entries": [
+    {
+      "date": "2026-08-11",
+      "day": "Tuesday",
+      "title": "AI Dev Briefing — Tuesday, August 11, 2026",
+      "summary": "OpenAI Pauses Astra — First Model to Approach \"Critical\" Cyber Threshold",
+      "headlines": [
+        {
+          "title": "OpenAI Pauses Astra — First Model to Approach \"Critical\" Cyber Threshold",
+          "note": "Disclosed: August 7, 2026 OpenAI halted internal development on its next generation model, Astra, after preliminary evaluations showed it \"cannot rule out\" that the model reaches OpenAI's Critical cy…",
+          "tags": [
+            "codex",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "OpenAI Expands Daybreak — GPT-5.6-Cyber Completes 95% of Offensive Security Tasks",
+          "note": "Announced: August 10, 2026 OpenAI expanded its Daybreak cybersecurity initiative with two tiers and a purpose trained offensive security model: Daybreak Blue: GPT 5.6 Sol with system level cyber guar…",
+          "tags": [
+            "codex",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Claude Code Auto Mode Becomes Default — August 14 (3 Days)",
+          "note": "Effective: August 14, 2026 Starting Thursday, auto mode replaces manual approval as the default permission model for new Claude Code sessions on Pro, Max, and Team plans.",
+          "tags": [
+            "claude-code",
+            "models",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Meta Muse Glimmer 30B — Open-Weight Agent That Runs on One GPU",
+          "note": "Technical specs: Architecture: 30B params (2B ViT perception encoder + 28B text decoder), distilled from larger Muse system Context: 131K tokens, 202K vocabulary License: Apache 2.0 Vision: Built in…",
+          "tags": [
+            "models",
+            "security",
+            "mcp",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Black Hat 2026: Critical Flaws in Anthropic, Google, and OpenAI Coding Agents",
+          "note": "Presented: August 2026 Novee researcher Elad Meged demonstrated a repeatable vulnerability pattern across AI coding agents from all three major providers — tested on the vendors' own repositories usi…",
+          "tags": [
+            "cursor",
+            "codex",
+            "gemini",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Claude Code Cross-Session Messaging — Agents Talk to Each Other",
+          "note": "Shipped: August 7 8, 2026 (v2.1.224 225) Claude Code sessions can now discover and message each other in real time: ListAgents: Discover which other sessions are running on the same machine or in the…",
+          "tags": [
+            "claude-code",
+            "harness"
+          ]
+        },
+        {
+          "title": "Gemini 3.5 Pro — August 12 Rumor (TOMORROW). Polymarket at 90%",
+          "note": "Polymarket gives a 90% chance of launch by August 14.",
+          "tags": [
+            "gemini",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Cursor Router: Auto Intelligence Achieves Above-Fable Satisfaction at 68% Lower Cost",
+          "note": "Adds Opus 5 to the model mix Auto Balance: Outperforms Opus 4.8 at 41% lower cost (8% further reduction), with 3% higher user satisfaction Why devs should care: Smart model routing is becoming the pr…",
+          "tags": [
+            "claude-code",
+            "cursor",
+            "models",
+            "pricing",
+            "harness"
+          ]
+        },
+        {
+          "title": "Anthropic Theseus Infrastructure — Dedicated Data Center JV",
+          "note": "Announced: August 10, 2026 Anthropic, Macquarie Asset Management, and GIC formed Theseus Infrastructure to develop, operate, and lease purpose built data centers to Anthropic under long term agreemen…",
+          "tags": [
+            "models",
+            "pricing"
+          ]
+        },
+        {
+          "title": "Model Lifecycle Updates — Deprecations, Pricing Cliffs, and New Arrivals",
+          "note": "Opus 4.1 Retired (August 5): Claude Opus 4.1 ( claude opus 4 1 20250805 ) is dead.",
+          "tags": [
+            "codex",
+            "models",
+            "pricing",
+            "mcp",
+            "harness",
+            "tools"
+          ]
+        }
+      ],
+      "actions": [
+        "Claude Code Auto Mode — Review Before Thursday (3 Days)",
+        "Update Fallback Chain for Opus 5",
+        "Budget for Sonnet 5 Price Increase (20 Days)",
+        "Security Posture Review — Black Hat Findings",
+        "Evaluate Meta Muse Glimmer 30B for Local Tier",
+        "Experiment with Claude Code Cross-Session Messaging",
+        "Watch Gemini 3.5 Pro Tomorrow",
+        "Migrate GPT-5.4 Before August 31"
+      ],
+      "tags": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "gemini",
+        "harness",
+        "mcp",
+        "models",
+        "pricing",
+        "security",
+        "tools"
+      ],
+      "headline_count": 10,
+      "action_count": 8
+    },
     {
       "date": "2026-07-18",
       "day": "Saturday",
