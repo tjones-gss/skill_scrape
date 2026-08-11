@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-08-11T07:53:51",
+    "generated": "2026-08-11T09:14:05",
     "count": 23,
     "first": "2026-06-24",
     "latest": "2026-08-11"
@@ -99,11 +99,32 @@
           ]
         },
         {
-          "title": "Anthropic Theseus Infrastructure — Dedicated Data Center JV",
-          "note": "Announced: August 10, 2026 Anthropic, Macquarie Asset Management, and GIC formed Theseus Infrastructure to develop, operate, and lease purpose built data centers to Anthropic under long term agreemen…",
+          "title": "Anthropic Infrastructure Blitz — Theseus JV + $9.1B Riot Platforms Deal",
+          "note": "Announced: August 10 11, 2026 Anthropic made two massive infrastructure moves in 48 hours: Theseus Infrastructure JV (Aug 10): Anthropic, Macquarie Asset Management, and GIC formed Theseus Infrastruc…",
           "tags": [
             "models",
-            "pricing"
+            "pricing",
+            "tools"
+          ]
+        },
+        {
+          "title": "Claude EU Watermarking Goes Live — Invisible Marks on All Output",
+          "note": "Effective: August 2, 2026 Anthropic is now watermarking all Claude output to comply with the EU AI Act's Article 50(2) transparency obligations: Text: Imperceptible watermark embedded in generated te…",
+          "tags": [
+            "models",
+            "security",
+            "tools"
+          ]
+        },
+        {
+          "title": "GPT-5.6 Luna Price Slashed 80% — AI Price War Escalates",
+          "note": "Effective: July 30, 2026 OpenAI executed a massive price recalibration three weeks after GPT 5.6 launched: Luna: $1/$6 → $0.20/$1.20 per Mtok (80% cut) Terra: $2.50/$15 → $2/$12 per Mtok (20% cut) So…",
+          "tags": [
+            "codex",
+            "models",
+            "pricing",
+            "harness",
+            "tools"
           ]
         },
         {
@@ -141,7 +162,7 @@
         "security",
         "tools"
       ],
-      "headline_count": 10,
+      "headline_count": 12,
       "action_count": 8
     },
     {
