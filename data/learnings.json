@@ -1,11 +1,150 @@
 {
   "meta": {
-    "generated": "2026-08-11T09:14:05",
-    "count": 23,
+    "generated": "2026-08-12T09:14:57",
+    "count": 24,
     "first": "2026-06-24",
-    "latest": "2026-08-11"
+    "latest": "2026-08-12"
   },
   "entries": [
+    {
+      "date": "2026-08-12",
+      "day": "Wednesday",
+      "title": "AI Dev Briefing — Wednesday, August 12, 2026",
+      "summary": "Made by Google Event TODAY — Pixel 11 + Gemini 3.5 Pro Watch",
+      "headlines": [
+        {
+          "title": "Made by Google Event TODAY — Pixel 11 + Gemini 3.5 Pro Watch",
+          "note": "Event: August 12, 2026 at 6 PM ET / 3 PM PT Google's Made by Google 2026 keynote airs today, confirming the Pixel 11 series (Pixel 11, 11 Pro, 11 Pro XL, 11 Pro Fold), Pixel Watch 5, and the surprise…",
+          "tags": [
+            "codex",
+            "gemini",
+            "models",
+            "pricing",
+            "harness"
+          ]
+        },
+        {
+          "title": "SpaceX-Cursor $60B Acquisition Closing Within Days",
+          "note": "SpaceX will acquire Anysphere (Cursor) for $60 billion in all stock, making it the largest AI tooling acquisition in history.",
+          "tags": [
+            "cursor",
+            "models",
+            "security",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Claude Code Auto Mode Default — 2 Days Away (August 14)",
+          "note": "Countdown: Thursday, August 14, 2026 Auto mode replaces manual approval as the default permission model in 2 days.",
+          "tags": [
+            "claude-code",
+            "models",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "MOSAIC: 96.6% Attack Success Rate Against AI Coding Agents",
+          "note": "How it works: The attacker is the upstream ticket author , not someone talking to the agent The agent receives only routine looking engineering tickets Each ticket is individually benign — the exploi…",
+          "tags": [
+            "models",
+            "security",
+            "harness"
+          ]
+        },
+        {
+          "title": "Open VSX \"Evil Twin\" Campaign — 77 Malicious Extensions Exfiltrated Dev Data",
+          "note": "Discovered: August 3, 2026 (extensions uploaded July 26 – August 1) Manifold Security discovered 77 malicious extensions on the Open VSX marketplace impersonating legitimate developer tools.",
+          "tags": [
+            "cursor",
+            "models",
+            "security",
+            "vscode",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Vibe Coding Security Crisis — AI-Assisted Commits Expose Secrets at 2x Rate",
+          "note": "CSA Research Note + Industry Data, August 2026 The Cloud Security Alliance and multiple industry reports are converging on a troubling pattern: AI assisted development is dramatically faster but intr…",
+          "tags": [
+            "models",
+            "security",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Insygna Agent Report Card — Free Security Scoring for AI Agents",
+          "note": "Announced: August 2026 Insygna introduced a free Agent Report Card that lets any company connect its AI agent repository, run independent tests, and receive a security score across six dimensions bef…",
+          "tags": [
+            "security",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Enterprise AI Agent Adoption — Belitsoft Report: 12 Agents Average, Half Work Alone",
+          "note": "Most enterprises have deployed agents but haven't connected them.",
+          "tags": [
+            "claude-code",
+            "mcp",
+            "harness"
+          ]
+        },
+        {
+          "title": "Codex Updates — MCP SDK 3.0, Notarization Security, Education Plugins",
+          "note": "Use gpt 5.6 terra and gpt 5.6 luna respectively.",
+          "tags": [
+            "codex",
+            "models",
+            "security",
+            "mcp",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "EU AI Act High-Risk Provisions Now Enforceable",
+          "note": "Effective: August 2, 2026 The EU AI Act's high risk AI system provisions became enforceable on August 2, 2026.",
+          "tags": [
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        }
+      ],
+      "actions": [
+        "Watch Made by Google Event Tonight (6 PM ET)",
+        "Claude Code Auto Mode — Final Review (2 Days)",
+        "Audit for MOSAIC Composition Attacks",
+        "Check Open VSX Extensions (July 26 – August 3 Window)",
+        "Enforce Verify-First Against Vibe Coding Debt",
+        "Budget for Sonnet 5 Price Increase (19 Days)",
+        "Migrate GPT-5.4 Before August 31 (19 Days)",
+        "Evaluate Insygna Agent Report Card"
+      ],
+      "tags": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "gemini",
+        "harness",
+        "mcp",
+        "models",
+        "pricing",
+        "security",
+        "tools",
+        "vscode"
+      ],
+      "headline_count": 10,
+      "action_count": 8
+    },
     {
       "date": "2026-08-11",
       "day": "Tuesday",
