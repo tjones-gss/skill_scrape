@@ -1,11 +1,72 @@
 {
   "meta": {
-    "generated": "2026-08-12T09:14:57",
-    "count": 24,
+    "generated": "2026-08-13T09:14:38",
+    "count": 25,
     "first": "2026-06-24",
-    "latest": "2026-08-12"
+    "latest": "2026-08-13"
   },
   "entries": [
+    {
+      "date": "2026-08-13",
+      "day": "Thursday",
+      "title": "AI Dev Briefing — Thursday, August 13, 2026",
+      "summary": "Claude Code 2.1.231: MCP OAuth redirect fix lands",
+      "headlines": [
+        {
+          "title": "Claude Code 2.1.231: MCP OAuth redirect fix lands",
+          "note": "Claude Code 2.1.231 fixes OAuth sign in failures caused by redirect URI mismatches when an MCP server uses a pre registered OAuth client, with Slack called out as an example.",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "mcp",
+            "tools"
+          ]
+        },
+        {
+          "title": "Zed Delta: Agentic development becomes multiplayer",
+          "note": "Zed introduced Delta in private beta, a collaborative environment that synchronizes an agent thread, its worktree, code comments, and the reasoning behind changes through DeltaDB; Claude Code is the…",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "harness"
+          ]
+        },
+        {
+          "title": "OpenAI Codex: Native Linux desktop preview ships",
+          "note": "OpenAI released its ChatGPT desktop app for Linux in preview with ChatGPT, Work, and Codex in one workspace, officially supporting Ubuntu 24.04/26.04, Debian 13, and Fedora 43/44 on x64 and ARM64.",
+          "tags": [
+            "codex",
+            "models",
+            "security"
+          ]
+        },
+        {
+          "title": "Claude Code 2.1.229: Self-hosted hooks and resilient long thinking",
+          "note": "The August 12 release added server supplied hooks to self hosted runner sessions, SSE keepalive pings that prevent Vertex and Bedrock idle timeouts during long thinking pauses, dynamic plugin marketp…",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "harness",
+            "tools"
+          ]
+        }
+      ],
+      "actions": [],
+      "tags": [
+        "claude-code",
+        "codex",
+        "harness",
+        "mcp",
+        "models",
+        "security",
+        "tools"
+      ],
+      "headline_count": 4,
+      "action_count": 0
+    },
     {
       "date": "2026-08-12",
       "day": "Wednesday",
