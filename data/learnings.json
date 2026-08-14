@@ -1,11 +1,72 @@
 {
   "meta": {
-    "generated": "2026-08-13T09:14:38",
-    "count": 25,
+    "generated": "2026-08-14T09:18:00",
+    "count": 26,
     "first": "2026-06-24",
-    "latest": "2026-08-13"
+    "latest": "2026-08-14"
   },
   "entries": [
+    {
+      "date": "2026-08-14",
+      "day": "Friday",
+      "title": "AI Dev Briefing — Friday, August 14, 2026",
+      "summary": "Claude Code 2.1.232: Forked subagents and cross-session messaging become the default",
+      "headlines": [
+        {
+          "title": "Claude Code 2.1.232: Forked subagents and cross-session messaging become the default",
+          "note": "Claude Code’s latest release makes subagent type: \"fork\" inherit the full conversation and prompt cache by default, adds @session mentions and stronger SendMessage routing between named live sessions…",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "harness"
+          ]
+        },
+        {
+          "title": "Cursor Cloud Agents: Builds cut startup latency and preserve known-good environments",
+          "note": "Cursor introduced Builds, continuously prepared snapshots with repositories cloned, dependencies installed, and install scripts already complete; Cursor reports 10× faster environment boot and 3× fas…",
+          "tags": [
+            "cursor",
+            "security"
+          ]
+        },
+        {
+          "title": "Codex: /import can pull setup and recent chats from Claude Code or Cursor",
+          "note": "OpenAI’s August 10–14 update adds migration and ongoing sync paths for instructions, settings, skills, plugins, projects, and recent work from Claude Code, Claude Cowork, and Cursor; Codex CLI expose…",
+          "tags": [
+            "claude-code",
+            "cursor",
+            "codex",
+            "models",
+            "security",
+            "pricing",
+            "harness",
+            "tools"
+          ]
+        },
+        {
+          "title": "Claude Tag: Slack agents now reason over channel-wide context before acting",
+          "note": "Claude Tag now combines the full channel context with memory and standing instructions to decide whether to reply, start deeper work, route a message into work already underway, or stay silent; Anthr…",
+          "tags": [
+            "security",
+            "harness"
+          ]
+        }
+      ],
+      "actions": [],
+      "tags": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "harness",
+        "models",
+        "pricing",
+        "security",
+        "tools"
+      ],
+      "headline_count": 4,
+      "action_count": 0
+    },
     {
       "date": "2026-08-13",
       "day": "Thursday",
