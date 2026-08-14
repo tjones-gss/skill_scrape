@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-08-14",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Faster starts",
+    "summary": "Cursor runs a new build of your environment regularly. When a build succeeds, it becomes the environment future agents start from. Cursor keeps warm copies ready so the next agent does not wait. Internally, our environments now boot 10x faster, with 3x faster time to first token."
+  },
+  {
+    "date": "2026-08-14",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#More resilient agent runs",
+    "summary": "When a bad commit or dependency update breaks your environment, agents keep using the last successful build. The broken build never becomes active, you are notified of the issue, and your agents keep working while you debug in the background."
+  },
+  {
+    "date": "2026-08-14",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Build history and debugging",
+    "summary": "Each environment has aBuildstab in the Cloud Agents dashboard. You can inspect build status, logs, commit SHAs, and which build each agent run used. Agents can also inspect and manage builds using built-in tools."
+  },
+  {
     "date": "2026-07-30",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
