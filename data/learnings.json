@@ -1,11 +1,73 @@
 {
   "meta": {
-    "generated": "2026-08-14T09:18:00",
-    "count": 26,
+    "generated": "2026-08-15T09:18:47",
+    "count": 27,
     "first": "2026-06-24",
-    "latest": "2026-08-14"
+    "latest": "2026-08-15"
   },
   "entries": [
+    {
+      "date": "2026-08-15",
+      "day": "Saturday",
+      "title": "AI Dev Briefing — Saturday, August 15, 2026",
+      "summary": "Claude Code 2.1.233: Windows hardening, GitLab MR worktrees, and safer self-hosted execution",
+      "headlines": [
+        {
+          "title": "Claude Code 2.1.233: Windows hardening, GitLab MR worktrees, and safer self-hosted execution",
+          "note": "Claude Code now accepts GitLab merge request URLs in worktree , starts self hosted runners faster, and adds an opt in Linux memory limit for Bash commands via CLAUDE CODE TOOL MEMORY LIMIT .",
+          "tags": [
+            "claude-code",
+            "models",
+            "security",
+            "mcp",
+            "tools"
+          ]
+        },
+        {
+          "title": "Qwen3.8-27B: A genuinely deployable open-weight coding model lands under Apache 2.0",
+          "note": "Qwen released a dense 27B vision language model with 262K native context, extension to 1M, configurable reasoning effort, and first party support for Transformers, vLLM, and SGLang.",
+          "tags": [
+            "models",
+            "security",
+            "tools"
+          ]
+        },
+        {
+          "title": "GLM-5.3: Z.ai gets a large coding jump from post-training alone",
+          "note": "GLM 5.3 keeps the same 743B base as GLM 5.2 and attributes its gains entirely to scaled reinforcement learning across more diverse, long horizon environments; Z.ai reports Terminal Bench 3.0 rising f…",
+          "tags": [
+            "models",
+            "security",
+            "harness"
+          ]
+        },
+        {
+          "title": "GitHub Copilot: Grok 4.6 joins every major coding surface",
+          "note": "GitHub is rolling Grok 4.6 into VS Code, Visual Studio, Copilot CLI, cloud agents, the Copilot app, JetBrains, Xcode, and Eclipse, positioning it for sustained tool use and longer multi step coding t…",
+          "tags": [
+            "copilot",
+            "models",
+            "security",
+            "vscode",
+            "harness",
+            "tools"
+          ]
+        }
+      ],
+      "actions": [],
+      "tags": [
+        "claude-code",
+        "copilot",
+        "harness",
+        "mcp",
+        "models",
+        "security",
+        "tools",
+        "vscode"
+      ],
+      "headline_count": 4,
+      "action_count": 0
+    },
     {
       "date": "2026-08-14",
       "day": "Friday",
