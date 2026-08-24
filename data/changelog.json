@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-08-24",
+    "source": "Claude Code",
+    "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
+    "headline": "Documentation Index",
+    "summary": "Fetch the complete documentation index at: /docs/llms.txt"
+  },
+  {
     "date": "2026-08-21",
     "source": "Claude Code",
     "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
@@ -201,12 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Marketplace leaderboard",
     "summary": "Cursor now shows you a leaderboard of the most popular plugins, skills, and MCPs across your team."
-  },
-  {
-    "date": "2026-06-25",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Plugin canvases",
-    "summary": "Plugins now support prebuilt canvases: shared setup templates your team can open and reuse."
   }
 ]
