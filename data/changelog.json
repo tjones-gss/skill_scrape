@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-08-27",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Get started",
+    "summary": "SelectStart from scratchin the repo picker, then prompt the agent. In the background, Cursor creates an Origin repo for you."
+  },
+  {
+    "date": "2026-08-27",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Turn it into a real repo, whenever you want",
+    "summary": "Once the agent's build is to your liking, click theCreate repobutton to save your work in an Origin repo. Choose a custom name or pick one of the suggested ones, then set the visibility to private or internal. You'll get a fully scaffolded Origin repo, ready to share or keep building on. Navigate to the Codebase tab to find your repo and access your project."
+  },
+  {
+    "date": "2026-08-27",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#A live preview, right in the browser",
+    "summary": "Cursor now port-forwards your cloud agent's live environment straight to your browser, so you can preview it and use tools like design mode."
+  },
+  {
     "date": "2026-08-24",
     "source": "Claude Code",
     "source_url": "https://docs.anthropic.com/en/docs/claude-code/changelog",
@@ -187,26 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Cloud agents on mobile",
     "summary": "Open the Cursor mobile app, choose a repo, and launch an agent the same way you would on the desktop app. Pick any frontier model, describe ideas out loud with voice input, and use slash commands to guide Cursor in the right direction."
-  },
-  {
-    "date": "2026-06-29",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Remote Control",
-    "summary": "UseRemote Controlto take an agent you're running on your computer and keep directing it from your phone."
-  },
-  {
-    "date": "2026-06-29",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Live Activities and push notifications",
-    "summary": "Track the status of your agents with Live Activities on your lock screen. Get push notifications when an agent finishes, needs input, or is ready for review."
-  },
-  {
-    "date": "2026-06-25",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Marketplace leaderboard",
-    "summary": "Cursor now shows you a leaderboard of the most popular plugins, skills, and MCPs across your team."
   }
 ]
