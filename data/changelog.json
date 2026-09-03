@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-09-03",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Dynamic pool scheduling",
+    "summary": "My Machinesconnects a single laptop or VM to your account for personal workflows."
+  },
+  {
+    "date": "2026-09-03",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Run on your sandboxes",
+    "summary": "Cloud agents can now execute oninfrastructure you already use, including from AWS Lambda, Coder, Cloudflare, Daytona, Modal, Namespace, Vercel, and E2B."
+  },
+  {
+    "date": "2026-09-03",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Computer use on Linux and Mac",
+    "summary": "Self-hosted workers now support computer use on Linux and Mac. With the right desktop packages, an agent can click, type, take screenshots, and drive the browser. You can watch its desktop or take control from Cursor."
+  },
+  {
     "date": "2026-08-27",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
@@ -187,26 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Redesigned project and repo pickers",
     "summary": "We've simplified the project and repo pickers and made them more powerful. You can now stay in the picker for workflows that used to send you elsewhere. For example, you can create a project and connect GitHub, GitLab, or Azure DevOps without leaving the picker."
-  },
-  {
-    "date": "2026-07-01",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Team MCPs in team marketplaces",
-    "summary": "Admins can now configure Team MCP servers once and distribute them across cloud agents, the agents window, IDE, and CLI."
-  },
-  {
-    "date": "2026-07-01",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Marketplace access by organization group",
-    "summary": "Team marketplaces now supportorganization groups, in addition to team-level SCIM directory groups."
-  },
-  {
-    "date": "2026-06-29",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Cloud agents on mobile",
-    "summary": "Open the Cursor mobile app, choose a repo, and launch an agent the same way you would on the desktop app. Pick any frontier model, describe ideas out loud with voice input, and use slash commands to guide Cursor in the right direction."
   }
 ]
