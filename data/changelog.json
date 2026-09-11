@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-09-11",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Powered by Cloud Agents",
+    "summary": "A Project runs on its own computer in the cloud, so closing your laptop doesn't stop it. When something needs testing on your machine, the coordinator spins up a local agent to run it there."
+  },
+  {
+    "date": "2026-09-11",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Shared context",
+    "summary": "You shouldn't have to onboard an agent every time you start a task. Each Project maintains a set of files that sync across every cloud and local machine its agents use. Agents add research and artifacts, along with what they learn about the codebase and how you prefer work to be done. If one agent figures out how to test a service, for example, every future agent can use those instructions. The sh"
+  },
+  {
     "date": "2026-09-03",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
@@ -194,19 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Side chats",
     "summary": "Open a side chat to ask questions, explore ideas, and investigate tangents without interrupting your main agent conversation. Use/side,/btw, or the plus button at the top of the chat panel to create a new side chat that has context from the main chat."
-  },
-  {
-    "date": "2026-07-13",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Conversation search",
-    "summary": "Find past agent chats faster with search results that go beyond names and PR numbers. In theAgents Window, you can search agent transcripts from the command palette (Cmd+K). Cursor builds a local search index that scales search to thousands of conversations with snappy performance."
-  },
-  {
-    "date": "2026-07-13",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Redesigned project and repo pickers",
-    "summary": "We've simplified the project and repo pickers and made them more powerful. You can now stay in the picker for workflows that used to send you elsewhere. For example, you can create a project and connect GitHub, GitLab, or Azure DevOps without leaving the picker."
   }
 ]
