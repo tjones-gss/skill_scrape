@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-09-24",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Rollouts",
+    "summary": "Rollouts attaches a monitor to every pull request and watches the change as it deploys, reporting change health per environment: verified healthy, regression detected, or inconclusive. It's the Cursor version ofFiretigerChange Monitors, rebuilt with the Bot Development Kit."
+  },
+  {
+    "date": "2026-09-24",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Security Review",
+    "summary": "Security Review is available today. It reads every pull request in the context of the codebase and posts one review comment reporting exploitable bugs. Style and quality stay with Bugbot."
+  },
+  {
     "date": "2026-09-11",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
@@ -194,19 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Multi-repo environment support",
     "summary": "From Slack, Cursor can now start in a named multi-repo environment instead of a single default repository. If your frontend, backend, and shared code live in separate repos, Cursor reads your request and targets the environment that gives it access to all of them."
-  },
-  {
-    "date": "2026-07-20",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Cross-channel workflows",
-    "summary": "Cursor can now read from and send messages to other Slack channels and threads. During a task, it can pull context from elsewhere in the workspace and post updates back in the original thread or the relevant channel."
-  },
-  {
-    "date": "2026-07-13",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Side chats",
-    "summary": "Open a side chat to ask questions, explore ideas, and investigate tangents without interrupting your main agent conversation. Use/side,/btw, or the plus button at the top of the chat panel to create a new side chat that has context from the main chat."
   }
 ]
