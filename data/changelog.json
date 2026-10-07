@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-07",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Agents keep running on your computer",
+    "summary": "Remote control doesn't move your agents anywhere. It keeps running on your computer, and the app connects to it. Your computer needs to stay on and online for remote control to work."
+  },
+  {
+    "date": "2026-10-07",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Keep your computer awake",
+    "summary": "To stop your computer from sleeping while you're away, turn on \"Keep this computer awake\" under Remote Control in Cursor's desktop settings. Your computer needs to be plugged in with the lid open."
+  },
+  {
     "date": "2026-09-24",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
@@ -194,19 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "Improvements↓↑",
     "summary": "Jul 17, 2026·Changelog"
-  },
-  {
-    "date": "2026-07-20",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Interaction improvements",
-    "summary": "Cursor now responds with a plan before it begins, so you can jump in and redirect early. As it works, it updates its status so you can follow each step."
-  },
-  {
-    "date": "2026-07-20",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Multi-repo environment support",
-    "summary": "From Slack, Cursor can now start in a named multi-repo environment instead of a single default repository. If your frontend, backend, and shared code live in separate repos, Cursor reads your request and targets the environment that gives it access to all of them."
   }
 ]
