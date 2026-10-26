@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-10-26",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Deploy agents wherever you need them",
+    "summary": "When you're ready to put an agent into use, you can deploy it to Cursor by runningagent-sdk deployfrom the project directory. The command builds the agent, gives it a URL, and starts it on our infrastructure. You can manage secrets and integrations from the dashboard, while continuing to use the same logs, evals, and playground available locally."
+  },
+  {
+    "date": "2026-10-26",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Agents as code",
+    "summary": "An agent is a project.instructions.mdis the prompt. Each file intools/is one typed action the model can call.skills/holds procedures the model loads on demand,mcp-connections/adds tools from MCP servers, andchannels/defines where the bot receives and answers messages.agent-sdk validatechecks the project andagent-sdk infoprints what was discovered."
+  },
+  {
+    "date": "2026-10-26",
+    "source": "Cursor",
+    "source_url": "https://cursor.com/changelog",
+    "headline": "#Channels",
+    "summary": "Agents wake on pull request, comment, and CI events from GitHub, GitLab, and Bitbucket; on mentions and DMs in Slack; on webhooks from any provider; and on a cron schedule. GitHub events pull through your Cursor account, so no public webhook URL is required. Slack is well-supported out of the box."
+  },
+  {
     "date": "2026-10-19",
     "source": "Cursor",
     "source_url": "https://cursor.com/changelog",
@@ -187,26 +208,5 @@
     "source_url": "https://cursor.com/changelog",
     "headline": "#Faster starts",
     "summary": "Cursor runs a new build of your environment regularly. When a build succeeds, it becomes the environment future agents start from. Cursor keeps warm copies ready so the next agent does not wait. Internally, our environments now boot 10x faster, with 3x faster time to first token."
-  },
-  {
-    "date": "2026-08-14",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#More resilient agent runs",
-    "summary": "When a bad commit or dependency update breaks your environment, agents keep using the last successful build. The broken build never becomes active, you are notified of the issue, and your agents keep working while you debug in the background."
-  },
-  {
-    "date": "2026-08-14",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Build history and debugging",
-    "summary": "Each environment has aBuildstab in the Cloud Agents dashboard. You can inspect build status, logs, commit SHAs, and which build each agent run used. Agents can also inspect and manage builds using built-in tools."
-  },
-  {
-    "date": "2026-07-30",
-    "source": "Cursor",
-    "source_url": "https://cursor.com/changelog",
-    "headline": "#Built for the bigger screen",
-    "summary": "The iPad layout is rebuilt around the extra space. Sidebar chats stay pinned so you can watch several agents run at once. Split screen keeps a review open next to a chat, and file diffs render in full."
   }
 ]
